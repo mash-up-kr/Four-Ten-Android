@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="272dp"
+    android:layout_height="374dp"
+    android:background="bg">
+
+
+    <ImageView
+        android:id="@+id/imgBouns1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="22dp"
+        android:background="@drawable/love_fill"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imgBouns2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="4dp"
+        android:background="@drawable/love_empty"
+        app:layout_constraintRight_toLeftOf="@+id/imgBouns1"
+        app:layout_constraintTop_toTopOf="@+id/imgBouns1" />
+
+    <ImageView
+        android:id="@+id/imgBouns3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="4dp"
+        android:background="@drawable/love_empty"
+        app:layout_constraintRight_toLeftOf="@+id/imgBouns2"
+        app:layout_constraintTop_toTopOf="@+id/imgBouns2" />
+
+    <ImageView
+        android:id="@+id/imgBouns4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="4dp"
+        android:background="@drawable/love_empty"
+        app:layout_constraintRight_toLeftOf="@+id/imgBouns3"
+        app:layout_constraintTop_toTopOf="@+id/imgBouns3" />
+
+    <ImageView
+        android:id="@+id/imgBouns5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="4dp"
+        android:background="@drawable/love_empty"
+        app:layout_constraintRight_toLeftOf="@+id/imgBouns4"
+        app:layout_constraintTop_toTopOf="@+id/imgBouns4" />
+
+
+    <ImageView
+        android:id="@+id/imgBalloon"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="21dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="22dp"
+        android:background="@drawable/textbox"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/imgBouns5" />
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="7dp"
+        android:background="@drawable/textbox"
+        android:gravity="center"
+        android:includeFontPadding="false"
+        android:textColor="@android:color/black"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@id/imgBalloon"
+        app:layout_constraintLeft_toLeftOf="@id/imgBalloon"
+        app:layout_constraintRight_toRightOf="@id/imgBalloon"
+        tools:text="자두자두 졸리냐? 그래도 해!" />
+
+
+    <ProgressBar
+        android:id="@+id/progressBarPercent"
+        style="@style/customProgressBarStyle"
+        android:layout_width="0dp"
+        android:layout_height="8dp"
+        android:layout_marginBottom="12dp"
+        app:layout_constraintLeft_toLeftOf="@id/btnConfirm"
+        app:layout_constraintRight_toRightOf="@id/btnConfirm"
+        app:layout_constraintBottom_toTopOf="@id/btnConfirm" />
+
+
+    <Button
+        android:id="@+id/btnConfirm"
+        android:layout_width="0dp"
+        android:layout_height="43dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/bg_button_grapefruit_radius_20"
+        android:textColor="@android:color/white"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:text="해냈습니다!" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
