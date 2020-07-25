@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "370014456030",
+    "firebase_url": "https://poten-74dfd.firebaseio.com",
+    "project_id": "poten-74dfd",
+    "storage_bucket": "poten-74dfd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:370014456030:android:bd9852f82e68c90dde9a4f",
+        "android_client_info": {
+          "package_name": "com.mashup.fourten"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "370014456030-ps8oqm93ugrmvqmpujof7cs3a9fl88p0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCIQ3Wbf8GYaDvTh2uS7ANGseCVeWpFOpA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "370014456030-ps8oqm93ugrmvqmpujof7cs3a9fl88p0.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "370014456030-kffo78606f65jnf5ac3su1158e85mcqr.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.mashup.JaDo"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
