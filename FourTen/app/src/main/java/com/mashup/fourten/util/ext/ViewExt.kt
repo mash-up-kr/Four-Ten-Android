@@ -17,16 +17,6 @@ fun Context.toast(message: CharSequence) =
 fun Context.longToast(message: CharSequence) =
     Toast.makeText(this, message, Toast.LENGTH_LONG).show()
 
-//startActivity<DetailActivity>()
-inline fun <reified T : Activity> Context.startActivity(bundle: Bundle? = null, vararg flags: Int) {
-    val intent = Intent(this, T::class.java)
-    for (flag in flags) {
-        intent.addFlags(flag)
-    }
-    if (bundle != null) intent.putExtras(bundle)
-    startActivity(intent)
-}
-
 fun Activity.checkPermission(REQUEST_CODE: Int, vararg permissions: String) {
     // Here, thisActivity is the current activity
     val notGrantedPermission = arrayListOf<String>()

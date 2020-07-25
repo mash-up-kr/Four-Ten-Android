@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">FourTen</string>
+    <string name="default_notification_channel_id">fcm</string>
+    <string name="notification_default_channel_id">alert channel</string>
+    <string name="notification_default_channel_name">습관 알림</string>
+    <string name="notification_default_channel_description">설정된 습관에 맞춰 알림을 표출한다.</string>
+
 </resources>
