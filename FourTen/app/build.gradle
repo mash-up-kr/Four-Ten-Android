@@ -1,6 +1,7 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
+apply plugin: 'com.google.gms.google-services'
 
 android {
     compileSdkVersion 29
@@ -75,5 +76,6 @@ dependencies {
 
     //google api
     implementation "com.google.android.gms:play-services-auth:$googleplay_version"
-
+    implementation "com.google.firebase:firebase-auth:$firebase_auth_version"
+    implementation "com.google.firebase:firebase-core:$firebase_core_version"
 }

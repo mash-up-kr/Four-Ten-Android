@@ -3,4 +3,7 @@
     <color name="colorPrimary">#6200EE</color>
     <color name="colorPrimaryDark">#3700B3</color>
     <color name="colorAccent">#03DAC5</color>
+    <color name="grapefruit">#ff6354</color>
+    <color name="JADO">#2d3241</color>
+    <color name="black">#131313</color>
 </resources>
