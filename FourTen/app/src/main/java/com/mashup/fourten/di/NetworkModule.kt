@@ -20,7 +20,7 @@ import java.util.concurrent.TimeUnit
 const val BASE_URL = "http://192.168.219.116:8080"
 private const val TIMEOUT: Long = 10L
 
-val remoteModule = module(override = true) {
+val networkModule = module(override = true) {
 
     single(named("headerInterceptor")) {
         Interceptor {

@@ -1,5 +1,6 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
+apply plugin: 'com.google.gms.google-services'
 apply plugin: 'kotlin-kapt'
 apply plugin: 'com.google.gms.google-services'
 
@@ -78,4 +79,8 @@ dependencies {
     implementation "com.google.android.gms:play-services-auth:$googleplay_version"
     implementation "com.google.firebase:firebase-auth:$firebase_auth_version"
     implementation "com.google.firebase:firebase-core:$firebase_core_version"
+
+    // firebase
+    implementation 'com.google.firebase:firebase-messaging:20.2.1'
+
 }

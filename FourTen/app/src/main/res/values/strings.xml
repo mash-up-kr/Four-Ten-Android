@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">FourTen</string>
     <string name="server_client_id">370014456030-ps8oqm93ugrmvqmpujof7cs3a9fl88p0.apps.googleusercontent.com</string>
+    <string name="default_notification_channel_id">fcm</string>
+    <string name="notification_default_channel_id">alert channel</string>
+    <string name="notification_default_channel_name">습관 알림</string>
+    <string name="notification_default_channel_description">설정된 습관에 맞춰 알림을 표출한다.</string>
 </resources>

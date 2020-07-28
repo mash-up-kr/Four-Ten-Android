@@ -38,6 +38,7 @@ class SplashActivity :
         }
         viewModel.checkedSignInField.observe(this, Observer {
             it.getContentIfNotHandled()?.let { // Only proceed if the event has never been handled
+                Log.e("s","!")
                 start(MainActivity::class, {})
                 finish()
             }
