@@ -1,44 +1,40 @@
 package com.mashup.fourten.ui.splash
 
-import android.os.Handler
-import androidx.appcompat.app.AppCompatActivity
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
+import com.google.gson.JsonObject
+import com.mashup.fourten.data.local.JadoPreferences.ptToken
 import com.mashup.fourten.data.model.response.BaseResponse
-import com.mashup.fourten.data.model.response.CommonResponse
-import com.mashup.fourten.data.model.response.SignInResponseData
-import com.mashup.fourten.data.remote.api.ApiService
+import com.mashup.fourten.data.model.response.SignInCheckResponseData
 import com.mashup.fourten.data.repository.SignRepositoryImpl
 import com.mashup.fourten.ui.base.BaseViewModel
-import com.mashup.fourten.ui.login.LoginActivity
-import com.mashup.fourten.ui.main.MainActivity
 import com.mashup.fourten.util.Event
-import com.mashup.fourten.util.ext.start
-import org.koin.java.KoinJavaComponent.inject
+import retrofit2.adapter.rxjava2.Result.response
+
 
 class SplashViewModel(val repo: SignRepositoryImpl) : BaseViewModel() {
 
     val checkedSignInField = MutableLiveData<Event<Boolean>>()
 
-    fun signInCheck(serverToken: String) {
-        repo.signInCheck(serverToken, object : BaseResponse<SignInResponseData> {
-            override fun onSuccess(data: CommonResponse<SignInResponseData>) {
+    fun signInCheck() {
+        repo.signInCheck(ptToken, object : BaseResponse<SignInCheckResponseData> {
+            override fun onSuccess(data: SignInCheckResponseData) {
                 if (data.responseCode == 1) {
                     checkedSignInField.postValue(Event(true))
+                } else {
+                    checkedSignInField.postValue(Event(false))
                 }
             }
 
             override fun onError(throwable: Throwable) {
-                TODO("Not yet implemented")
             }
 
             override fun onLoading() {
-                TODO("Not yet implemented")
             }
 
             override fun onLoaded() {
-                TODO("Not yet implemented")
             }
 
-        })
+        }).also { disposable.add(it) }
     }
 }

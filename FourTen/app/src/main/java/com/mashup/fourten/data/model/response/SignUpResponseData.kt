@@ -1,12 +1,13 @@
 package com.mashup.fourten.data.model.response
 
+import com.google.gson.JsonObject
 import com.google.gson.annotations.SerializedName
 
 data class SignUpResponseData(
     @SerializedName("responseCode")
     val responseCode: Int,
     @SerializedName("responseData")
-    val responseData: SignUpUserResponseData
+    val responseData: JsonObject
 )
 
 data class SignUpUserResponseData(

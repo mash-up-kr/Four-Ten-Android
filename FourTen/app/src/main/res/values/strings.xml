@@ -5,4 +5,7 @@
     <string name="notification_default_channel_id">alert channel</string>
     <string name="notification_default_channel_name">습관 알림</string>
     <string name="notification_default_channel_description">설정된 습관에 맞춰 알림을 표출한다.</string>
+    <string name="put_nickname">닉네임을 제대로 넣어주세요!</string>
+    <string name="overlap_nickname">이미 사용중인 닉네임입니다!</string>
+    <string name="success_sign_up">회원가입 성공!</string>
 </resources>

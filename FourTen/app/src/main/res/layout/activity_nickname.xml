@@ -31,10 +31,10 @@
                 android:text="회원가입"
                 android:textColor="@color/black"
                 android:textSize="18sp"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"/>
+                app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
                 android:id="@+id/btnBack"
@@ -97,6 +97,7 @@
                 android:ems="10"
                 android:hint="원하는 닉네임을 입력해주세요"
                 android:inputType="textPersonName"
+                android:text="@={viewModel.nicknameField}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@id/tvAppName"
                 app:layout_constraintTop_toBottomOf="@id/tvNickName" />
@@ -108,6 +109,7 @@
                 android:layout_marginTop="34dp"
                 android:layout_marginEnd="24dp"
                 android:background="@drawable/sign_up_button"
+                android:onClick="@{(v) -> viewModel.signUp()}"
                 android:text="회원가입"
                 android:textColor="#FFFFFF"
                 app:layout_constraintEnd_toEndOf="parent"
