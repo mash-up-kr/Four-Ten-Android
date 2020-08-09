@@ -41,6 +41,8 @@
         </activity>
         <activity android:name=".ui.login.LoginActivity"/>
         <activity android:name=".ui.nickname.NicknameActivity"/>
+        <activity android:name=".ui.completed.CompletedFruitsActivity">
+        </activity>
 <!--        <service-->
 <!--            android:name=".service.FcmService"-->
 <!--            android:exported="false">-->

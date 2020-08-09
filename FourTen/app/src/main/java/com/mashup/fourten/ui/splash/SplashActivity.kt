@@ -2,22 +2,21 @@ package com.mashup.fourten.ui.splash
 
 import android.os.Bundle
 import android.os.Handler
-import android.util.Log
 import androidx.lifecycle.Observer
 import com.mashup.fourten.R
 import com.mashup.fourten.data.local.JadoPreferences
 import com.mashup.fourten.databinding.ActivitySplashBinding
 import com.mashup.fourten.ui.base.BaseActivity
+import com.mashup.fourten.ui.completed.CompletedFruitsActivity
 import com.mashup.fourten.ui.login.LoginActivity
-import com.mashup.fourten.ui.main.MainActivity
 import com.mashup.fourten.util.ext.start
-import org.koin.android.ext.android.inject
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 
 class SplashActivity :
     BaseActivity<ActivitySplashBinding, SplashViewModel>(R.layout.activity_splash) {
 
-    override val viewModel: SplashViewModel by inject()
+    override val viewModel: SplashViewModel by viewModel()
 
     private val handler = Handler()
 
@@ -36,7 +35,7 @@ class SplashActivity :
         viewModel.checkedSignInField.observe(this, Observer {
             it.getContentIfNotHandled()?.let {
                 if (it) {
-                    start(MainActivity::class, {})
+                    start(CompletedFruitsActivity::class, {})
                     finish()
                 } else {
                     start(LoginActivity::class, {})

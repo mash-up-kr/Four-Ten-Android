@@ -3,8 +3,6 @@ package com.mashup.fourten.data.local
 import android.app.Activity
 import android.content.Context
 import android.content.SharedPreferences
-import android.util.Log
-import androidx.appcompat.app.AppCompatActivity
 
 object JadoPreferences {
     private const val PTTOKEN = "PT-TOKEN"

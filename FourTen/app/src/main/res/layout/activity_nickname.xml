@@ -6,6 +6,10 @@
     <data>
 
         <variable
+            name="activity"
+            type="com.mashup.fourten.ui.nickname.NicknameActivity" />
+
+        <variable
             name="viewModel"
             type="com.mashup.fourten.ui.nickname.NicknameViewModel" />
     </data>
@@ -41,6 +45,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="12dp"
+                android:onClick="@{(v) -> activity.finish()}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"

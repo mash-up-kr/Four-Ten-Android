@@ -17,6 +17,10 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
@@ -73,6 +77,8 @@ dependencies {
     implementation "io.reactivex.rxjava2:rxkotlin:$rxkotlin_version"
 
     // koin
+    implementation "org.koin:koin-android:$koin_version"
+    implementation "org.koin:koin-android-scope:$koin_version"
     implementation "org.koin:koin-androidx-viewmodel:$koin_version"
 
     // test
@@ -87,5 +93,11 @@ dependencies {
 
     // firebase
     implementation 'com.google.firebase:firebase-messaging:20.2.1'
+
+    //viewpager
+    implementation "androidx.viewpager2:viewpager2:$viewpager_version"
+
+    //fragment ktx
+    implementation "androidx.fragment:fragment-ktx:$fragment_ktx_version"
 
 }

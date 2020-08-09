@@ -7,17 +7,17 @@ import androidx.lifecycle.Observer
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.common.api.ApiException
 import com.mashup.fourten.R
-import com.mashup.fourten.util.GoogleSignInClient
 import com.mashup.fourten.data.local.JadoPreferences
 import com.mashup.fourten.databinding.ActivityLoginBinding
 import com.mashup.fourten.ui.base.BaseActivity
 import com.mashup.fourten.ui.main.MainActivity
 import com.mashup.fourten.ui.nickname.NicknameActivity
+import com.mashup.fourten.util.GoogleSignInClient
 import com.mashup.fourten.util.ext.start
-import org.koin.android.ext.android.inject
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class LoginActivity : BaseActivity<ActivityLoginBinding, LoginViewModel>(R.layout.activity_login) {
-    override val viewModel: LoginViewModel by inject()
+    override val viewModel: LoginViewModel by viewModel()
 
     companion object {
         const val RC_SIGN_IN = 9001
@@ -26,6 +26,7 @@ class LoginActivity : BaseActivity<ActivityLoginBinding, LoginViewModel>(R.layou
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding.activity = this
+        binding.lifecycleOwner = this
         GoogleSignInClient.init(this)
 
         viewModel.idCheckedField.observe(this, Observer {
@@ -35,7 +36,6 @@ class LoginActivity : BaseActivity<ActivityLoginBinding, LoginViewModel>(R.layou
                     finish()
                 } else {
                     start(NicknameActivity::class)
-                    finish()
                 }
             }
         })

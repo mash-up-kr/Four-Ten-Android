@@ -1,7 +1,7 @@
 package com.mashup.fourten.ui.main
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.mashup.fourten.R
 
 class MainActivity : AppCompatActivity() {
