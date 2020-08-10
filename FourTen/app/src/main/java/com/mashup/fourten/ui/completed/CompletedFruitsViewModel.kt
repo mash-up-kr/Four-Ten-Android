@@ -14,7 +14,7 @@ class CompletedFruitsViewModel(val repo: FruitRepositorylmpl) : BaseViewModel() 
     val userData = MutableLiveData<List<HabitListResponseData>>()
 
     fun requestHabitList() {
-        repo.fetchCompletedFruits(JadoPreferences.ptToken,
+        repo.fetchCompletedFruits(
             object : BaseResponse<BaseResponseData<List<HabitListResponseData>>> {
                 override fun onSuccess(data: BaseResponseData<List<HabitListResponseData>>) {
                     userData.value = data.responseData

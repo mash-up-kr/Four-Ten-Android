@@ -12,10 +12,9 @@ class FruitRepositorylmpl(
     private val api: ApiService
 ) : FruitRepositoryInterface {
     override fun fetchCompletedFruits(
-        token: String,
         callback: BaseResponse<BaseResponseData<List<HabitListResponseData>>>
     ): Disposable {
-        return api.requestHabitList(token)
+        return api.requestHabitList()
             .doOnSubscribe { callback.onLoading() }
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())

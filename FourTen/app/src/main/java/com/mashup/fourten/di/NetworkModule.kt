@@ -2,6 +2,7 @@ package com.mashup.fourten.di
 
 import com.google.gson.GsonBuilder
 import com.mashup.fourten.BuildConfig
+import com.mashup.fourten.data.local.JadoPreferences
 import com.mashup.fourten.data.remote.api.ApiService
 import io.reactivex.schedulers.Schedulers
 import okhttp3.Interceptor
@@ -24,6 +25,7 @@ val networkModule = module(override = true) {
             val original = it.request()
             val request = original.newBuilder()
                 .method(original.method(), original.body())
+                .addHeader("PT-TOKEN",JadoPreferences.ptToken)
                 .build()
             it.proceed(request)
         }

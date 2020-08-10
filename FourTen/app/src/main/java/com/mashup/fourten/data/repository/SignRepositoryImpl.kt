@@ -47,10 +47,9 @@ class SignRepositoryImpl(private val api: ApiService) : SignRepositoryInterface 
     }
 
     override fun signInCheck(
-        ptToken: String,
         callback: BaseResponse<BaseResponseData<JsonObject>>
     ): Disposable {
-        return api.requestSignInCheck(ptToken, SignInRequestData("", ""))
+        return api.requestSignInCheck(SignInRequestData("", ""))
             .doOnSubscribe { callback.onLoading() }
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())

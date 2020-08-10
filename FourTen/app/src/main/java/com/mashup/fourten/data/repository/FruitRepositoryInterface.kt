@@ -7,7 +7,6 @@ import io.reactivex.disposables.Disposable
 
 interface FruitRepositoryInterface {
     fun fetchCompletedFruits(
-        token: String,
         callback: BaseResponse<BaseResponseData<List<HabitListResponseData>>>
     ): Disposable
 }

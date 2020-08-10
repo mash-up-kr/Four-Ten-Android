@@ -26,14 +26,11 @@ interface ApiService {
 
     @POST("user/sign-in")
     fun requestSignInCheck(
-        @Header("PT-TOKEN") token: String,
         @Body params: SignInRequestData
     ): Single<BaseResponseData<JsonObject>>
 
     @GET("habit/list")
-    fun requestHabitList(
-        @Header("PT-TOKEN") token: String
-    ): Single<BaseResponseData<List<HabitListResponseData>>>
+    fun requestHabitList(): Single<BaseResponseData<List<HabitListResponseData>>>
 }
 
 

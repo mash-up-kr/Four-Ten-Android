@@ -15,7 +15,7 @@ class SplashViewModel(val repo: SignRepositoryImpl) : BaseViewModel() {
     val checkedSignInField = MutableLiveData<Event<Boolean>>()
 
     fun signInCheck() {
-        repo.signInCheck(ptToken, object : BaseResponse<BaseResponseData<JsonObject>> {
+        repo.signInCheck(object : BaseResponse<BaseResponseData<JsonObject>> {
             override fun onSuccess(data: BaseResponseData<JsonObject>) {
                 if (data.responseCode == 1) {
                     checkedSignInField.postValue(Event(true))

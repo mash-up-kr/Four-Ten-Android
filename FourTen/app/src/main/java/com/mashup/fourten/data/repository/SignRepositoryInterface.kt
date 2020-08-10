@@ -16,5 +16,5 @@ interface SignRepositoryInterface {
         nickname: String
     ): Disposable
 
-    fun signInCheck(token: String, callback: BaseResponse<BaseResponseData<JsonObject>>): Disposable
+    fun signInCheck(callback: BaseResponse<BaseResponseData<JsonObject>>): Disposable
 }
