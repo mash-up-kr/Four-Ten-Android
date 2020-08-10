@@ -5,8 +5,8 @@ import android.content.Context
 import android.content.SharedPreferences
 
 object JadoPreferences {
-    private const val PTTOKEN = "PT-TOKEN"
-    private const val GOOGLETOKEN = "GOOGLE-TOKEN"
+    private const val PT_TOKEN = "PT-TOKEN"
+    private const val GOOGLE_TOKEN = "GOOGLE-TOKEN"
     lateinit var preferences: SharedPreferences
 
     fun init(context: Context) {
@@ -14,15 +14,15 @@ object JadoPreferences {
     }
 
     var ptToken: String
-        get() = preferences.getString(PTTOKEN, "") ?: ""
+        get() = preferences.getString(PT_TOKEN, "") ?: ""
         set(value) = preferences.let {
-            it.edit().putString(PTTOKEN, value).apply()
+            it.edit().putString(PT_TOKEN, value).apply()
         }
 
     var googleToken: String
-        get() = preferences.getString(GOOGLETOKEN, "") ?: ""
+        get() = preferences.getString(GOOGLE_TOKEN, "") ?: ""
         set(value) = preferences.let {
-            it.edit().putString(GOOGLETOKEN, value).apply()
+            it.edit().putString(GOOGLE_TOKEN, value).apply()
         }
 
 }
