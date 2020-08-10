@@ -13,11 +13,16 @@ import io.reactivex.schedulers.Schedulers
 
 class SignRepositoryImpl(private val api: ApiService) : SignRepository {
 
+    enum class SnsType(snsType: String) {
+        GOOGLE("google"),
+        NONE("")
+    }
+
     override fun signIn(
         token: String,
         callback: BaseResponse<BaseResponseData<JsonElement>>
     ): Disposable {
-        return api.requestSignIn(SignInRequestData("google", token))
+        return api.requestSignIn(SignInRequestData(SnsType.GOOGLE, token))
             .doOnSubscribe { callback.onLoading() }
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
@@ -34,7 +39,7 @@ class SignRepositoryImpl(private val api: ApiService) : SignRepository {
         callback: BaseResponse<BaseResponseData<JsonObject>>,
         nickname: String
     ): Disposable {
-        return api.requestSignUp(SignUpRequestData("google", token, nickname))
+        return api.requestSignUp(SignUpRequestData(SnsType.GOOGLE, token, nickname))
             .doOnSubscribe { callback.onLoading() }
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
@@ -49,7 +54,7 @@ class SignRepositoryImpl(private val api: ApiService) : SignRepository {
     override fun signInCheck(
         callback: BaseResponse<BaseResponseData<JsonObject>>
     ): Disposable {
-        return api.requestSignInCheck(SignInRequestData("", ""))
+        return api.requestSignInCheck(SignInRequestData(SnsType.NONE, ""))
             .doOnSubscribe { callback.onLoading() }
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
