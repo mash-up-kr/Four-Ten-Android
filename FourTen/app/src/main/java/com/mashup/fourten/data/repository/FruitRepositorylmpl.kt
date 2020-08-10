@@ -10,7 +10,7 @@ import io.reactivex.schedulers.Schedulers
 
 class FruitRepositorylmpl(
     private val api: ApiService
-) : FruitRepositoryInterface {
+) : FruitRepository {
     override fun fetchCompletedFruits(
         callback: BaseResponse<BaseResponseData<List<HabitListResponseData>>>
     ): Disposable {

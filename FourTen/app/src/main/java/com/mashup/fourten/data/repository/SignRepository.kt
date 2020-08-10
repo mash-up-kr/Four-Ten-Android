@@ -6,7 +6,7 @@ import com.mashup.fourten.data.model.response.BaseResponse
 import com.mashup.fourten.data.model.response.BaseResponseData
 import io.reactivex.disposables.Disposable
 
-interface SignRepositoryInterface {
+interface SignRepository {
 
     fun signIn(token: String, callback: BaseResponse<BaseResponseData<JsonElement>>): Disposable
 

@@ -11,7 +11,7 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
 
-class SignRepositoryImpl(private val api: ApiService) : SignRepositoryInterface {
+class SignRepositoryImpl(private val api: ApiService) : SignRepository {
 
     override fun signIn(
         token: String,

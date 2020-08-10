@@ -5,7 +5,7 @@ import com.mashup.fourten.data.model.response.BaseResponseData
 import com.mashup.fourten.data.model.response.HabitListResponseData
 import io.reactivex.disposables.Disposable
 
-interface FruitRepositoryInterface {
+interface FruitRepository {
     fun fetchCompletedFruits(
         callback: BaseResponse<BaseResponseData<List<HabitListResponseData>>>
     ): Disposable
