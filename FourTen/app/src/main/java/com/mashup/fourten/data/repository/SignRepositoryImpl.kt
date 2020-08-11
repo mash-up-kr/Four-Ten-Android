@@ -6,25 +6,18 @@ import com.mashup.fourten.data.model.request.SignInRequestData
 import com.mashup.fourten.data.model.request.SignUpRequestData
 import com.mashup.fourten.data.model.response.BaseResponse
 import com.mashup.fourten.data.model.response.BaseResponseData
-import com.mashup.fourten.data.remote.api.ApiService
+import com.mashup.fourten.data.remote.api.SignApiService
 import com.mashup.fourten.util.ext.observeSingle
-import io.reactivex.Single
-import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
-import io.reactivex.schedulers.Schedulers
 
-class SignRepositoryImpl(private val api: ApiService) : SignRepository {
-
-    enum class SnsType(snsType: String) {
-        GOOGLE("google"),
-        NONE("")
-    }
+class SignRepositoryImpl(private val signApi: SignApiService) : SignRepository {
 
     override fun signIn(
         token: String,
-        callback: BaseResponse<BaseResponseData<JsonElement>>
+        callback: BaseResponse<BaseResponseData<JsonObject>>
     ): Disposable {
-        return api.requestSignIn(SignInRequestData(SnsType.GOOGLE, token)).observeSingle(callback)
+        return signApi.requestSignIn(SignInRequestData(SnsType.GOOGLE.snsType, token))
+            .observeSingle(callback)
     }
 
     override fun signUp(
@@ -32,14 +25,8 @@ class SignRepositoryImpl(private val api: ApiService) : SignRepository {
         callback: BaseResponse<BaseResponseData<JsonObject>>,
         nickname: String
     ): Disposable {
-        return api.requestSignUp(SignUpRequestData(SnsType.GOOGLE, token, nickname))
+        return signApi.requestSignUp(SignUpRequestData(SnsType.GOOGLE.snsType, token, nickname))
             .observeSingle(callback)
-    }
-
-    override fun signInCheck(
-        callback: BaseResponse<BaseResponseData<JsonObject>>
-    ): Disposable {
-        return api.requestSignInCheck(SignInRequestData(SnsType.NONE, "")).observeSingle(callback)
     }
 
 }

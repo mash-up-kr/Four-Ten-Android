@@ -3,7 +3,8 @@ package com.mashup.fourten.di
 import com.google.gson.GsonBuilder
 import com.mashup.fourten.BuildConfig
 import com.mashup.fourten.data.local.JadoPreferences
-import com.mashup.fourten.data.remote.api.ApiService
+import com.mashup.fourten.data.remote.api.FruitApiService
+import com.mashup.fourten.data.remote.api.SignApiService
 import io.reactivex.schedulers.Schedulers
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
@@ -25,7 +26,7 @@ val networkModule = module(override = true) {
             val original = it.request()
             val request = original.newBuilder()
                 .method(original.method(), original.body())
-                .addHeader("PT-TOKEN",JadoPreferences.ptToken)
+                .addHeader("PT-TOKEN", JadoPreferences.ptToken)
                 .build()
             it.proceed(request)
         }
@@ -45,7 +46,7 @@ val networkModule = module(override = true) {
         GsonBuilder().setLenient().create()
     }
 
-    single {
+    single(named("ptTokenHeader")) {
         OkHttpClient.Builder()
             .addInterceptor(get(named("headerInterceptor")))
             //.addInterceptor(get(named("httpLoggingInterceptor")))
@@ -55,16 +56,28 @@ val networkModule = module(override = true) {
             .build()
     }
 
-    single(named("urlApi")) {
+    single(named("beforeLoginRetrofit")) {
         Retrofit.Builder()
             .addCallAdapterFactory(RxJava2CallAdapterFactory.createWithScheduler(Schedulers.io()))
             .addConverterFactory(GsonConverterFactory.create(get()))
-            .client(get())
             .baseUrl(BASE_URL)
             .build()
     }
 
-    single {
-        get<Retrofit>(named("urlApi")).create(ApiService::class.java)
+    single(named("afterLoginRetrofit")) {
+        Retrofit.Builder()
+            .addCallAdapterFactory(RxJava2CallAdapterFactory.createWithScheduler(Schedulers.io()))
+            .addConverterFactory(GsonConverterFactory.create(get()))
+            .client(get(named("ptTokenHeader")))
+            .baseUrl(BASE_URL)
+            .build()
+    }
+
+    single(named("afterLoginApi")) {
+        get<Retrofit>(named("afterLoginRetrofit")).create(FruitApiService::class.java)
+    }
+
+    single(named("beforeLoginApi")) {
+        get<Retrofit>(named("beforeLoginRetrofit")).create(SignApiService::class.java)
     }
 }

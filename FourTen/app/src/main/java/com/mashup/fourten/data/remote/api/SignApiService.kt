@@ -13,24 +13,17 @@ import retrofit2.http.Header
 import retrofit2.http.POST
 
 
-interface ApiService {
+interface SignApiService {
     @POST("user/sign-in")
     fun requestSignIn(
         @Body params: SignInRequestData
-    ): Single<BaseResponseData<JsonElement>>
+    ): Single<BaseResponseData<JsonObject>>
 
     @POST("user/sign-up")
     fun requestSignUp(
         @Body params: SignUpRequestData
     ): Single<BaseResponseData<JsonObject>>
 
-    @POST("user/sign-in")
-    fun requestSignInCheck(
-        @Body params: SignInRequestData
-    ): Single<BaseResponseData<JsonObject>>
-
-    @GET("habit/list")
-    fun requestHabitList(): Single<BaseResponseData<List<HabitListResponseData>>>
 }
 
 
