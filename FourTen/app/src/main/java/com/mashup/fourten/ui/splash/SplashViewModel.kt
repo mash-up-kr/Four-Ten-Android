@@ -1,6 +1,7 @@
 package com.mashup.fourten.ui.splash
 
 import android.util.Log
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.google.gson.JsonElement
 import com.google.gson.JsonObject
@@ -21,15 +22,16 @@ enum class ResponseCode(val Code: Int) {
 
 class SplashViewModel(val repo: FruitRepositorylmpl) : BaseViewModel() {
 
-    val checkedSignInField = MutableLiveData<Event<Boolean>>()
+    private val _checkedSignInField = MutableLiveData<Event<Boolean>>()
+    val checkedSignInField: LiveData<Event<Boolean>> = _checkedSignInField
 
     fun signInCheck() {
         repo.signInCheck(object : BaseResponse<BaseResponseData<JsonElement>> {
             override fun onSuccess(data: BaseResponseData<JsonElement>) {
                 if (data.responseCode == ResponseCode.SUCCESS.Code) {
-                    checkedSignInField.value = Event(true)
+                    _checkedSignInField.value = Event(true)
                 } else {
-                    checkedSignInField.value = Event(false)
+                    _checkedSignInField.value = Event(false)
                 }
             }
 

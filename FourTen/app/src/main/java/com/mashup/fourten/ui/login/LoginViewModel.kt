@@ -1,6 +1,7 @@
 package com.mashup.fourten.ui.login
 
 import android.util.Log
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.google.gson.GsonBuilder
 import com.google.gson.JsonElement
@@ -16,7 +17,8 @@ import com.mashup.fourten.util.Event
 
 class LoginViewModel(val repo: SignRepositoryImpl) : BaseViewModel() {
 
-    val idCheckedField = MutableLiveData<Event<Boolean>>()
+    private val _idCheckedField = MutableLiveData<Event<Boolean>>()
+    val idCheckedField: LiveData<Event<Boolean>> = _idCheckedField
 
     fun idCheck() {
         repo.signIn(
@@ -30,9 +32,9 @@ class LoginViewModel(val repo: SignRepositoryImpl) : BaseViewModel() {
                                 data.responseData.toString(),
                                 SignInUserResponseData::class.java
                             ).token
-                        idCheckedField.value = (Event(true))
+                        _idCheckedField.value = (Event(true))
                     } else if (data.responseCode == ResponseCode.SIGNUP.Code) {
-                        idCheckedField.value = (Event(false))
+                        _idCheckedField.value = (Event(false))
                     }
                 }
 
