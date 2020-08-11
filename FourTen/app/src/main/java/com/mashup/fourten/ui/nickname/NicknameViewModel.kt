@@ -8,6 +8,7 @@ import com.mashup.fourten.data.model.response.BaseResponse
 import com.mashup.fourten.data.model.response.BaseResponseData
 import com.mashup.fourten.data.repository.SignRepositoryImpl
 import com.mashup.fourten.ui.base.BaseViewModel
+import com.mashup.fourten.ui.splash.ResponseCode
 import com.mashup.fourten.util.Event
 
 class NicknameViewModel(val repo: SignRepositoryImpl) : BaseViewModel() {
@@ -26,10 +27,10 @@ class NicknameViewModel(val repo: SignRepositoryImpl) : BaseViewModel() {
                 JadoPreferences.googleToken,
                 object : BaseResponse<BaseResponseData<JsonObject>> {
                     override fun onSuccess(data: BaseResponseData<JsonObject>) {
-                        if (data.responseCode == 1) {
+                        if (data.responseCode == ResponseCode.SUCCESS.Code) {
                             toastField.postValue(Event<Int>(R.string.success_sign_up))
                             loginField.postValue(Event(0))
-                        } else if (data.responseCode == 4) {
+                        } else if (data.responseCode == ResponseCode.NICKNAME.Code) {
                             toastField.postValue(Event<Int>(R.string.overlap_nickname))
                         }
                     }

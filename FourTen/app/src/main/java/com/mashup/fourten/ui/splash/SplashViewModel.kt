@@ -12,6 +12,12 @@ import com.mashup.fourten.data.repository.SignRepositoryImpl
 import com.mashup.fourten.ui.base.BaseViewModel
 import com.mashup.fourten.util.Event
 
+enum class ResponseCode(val Code: Int) {
+    FAIL(0),
+    SUCCESS(1),
+    SIGNUP(3),
+    NICKNAME(4)
+}
 
 class SplashViewModel(val repo: FruitRepositorylmpl) : BaseViewModel() {
 
@@ -20,7 +26,7 @@ class SplashViewModel(val repo: FruitRepositorylmpl) : BaseViewModel() {
     fun signInCheck() {
         repo.signInCheck(object : BaseResponse<BaseResponseData<JsonElement>> {
             override fun onSuccess(data: BaseResponseData<JsonElement>) {
-                if (data.responseCode == 1) {
+                if (data.responseCode == ResponseCode.SUCCESS.Code) {
                     checkedSignInField.postValue(Event(true))
                 } else {
                     checkedSignInField.postValue(Event(false))

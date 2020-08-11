@@ -11,6 +11,7 @@ import com.mashup.fourten.data.model.response.BaseResponseData
 import com.mashup.fourten.data.model.response.SignInUserResponseData
 import com.mashup.fourten.data.repository.SignRepositoryImpl
 import com.mashup.fourten.ui.base.BaseViewModel
+import com.mashup.fourten.ui.splash.ResponseCode
 import com.mashup.fourten.util.Event
 
 class LoginViewModel(val repo: SignRepositoryImpl) : BaseViewModel() {
@@ -22,7 +23,7 @@ class LoginViewModel(val repo: SignRepositoryImpl) : BaseViewModel() {
             JadoPreferences.googleToken,
             object : BaseResponse<BaseResponseData<JsonObject>> {
                 override fun onSuccess(data: BaseResponseData<JsonObject>) {
-                    if (data.responseCode == 1) {
+                    if (data.responseCode == ResponseCode.SUCCESS.Code) {
                         val gson = GsonBuilder().setPrettyPrinting().create()
                         JadoPreferences.ptToken =
                             gson.fromJson(
@@ -30,7 +31,7 @@ class LoginViewModel(val repo: SignRepositoryImpl) : BaseViewModel() {
                                 SignInUserResponseData::class.java
                             ).token
                         idCheckedField.postValue(Event(true))
-                    } else if (data.responseCode == 3) {
+                    } else if (data.responseCode == ResponseCode.SIGNUP.Code) {
                         idCheckedField.postValue(Event(false))
                     }
                 }
