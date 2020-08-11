@@ -4,6 +4,7 @@ import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import com.google.gson.GsonBuilder
 import com.google.gson.JsonElement
+import com.google.gson.JsonObject
 import com.mashup.fourten.data.local.JadoPreferences
 import com.mashup.fourten.data.model.response.BaseResponse
 import com.mashup.fourten.data.model.response.BaseResponseData
@@ -19,8 +20,8 @@ class LoginViewModel(val repo: SignRepositoryImpl) : BaseViewModel() {
     fun idCheck() {
         repo.signIn(
             JadoPreferences.googleToken,
-            object : BaseResponse<BaseResponseData<JsonElement>> {
-                override fun onSuccess(data: BaseResponseData<JsonElement>) {
+            object : BaseResponse<BaseResponseData<JsonObject>> {
+                override fun onSuccess(data: BaseResponseData<JsonObject>) {
                     if (data.responseCode == 1) {
                         val gson = GsonBuilder().setPrettyPrinting().create()
                         JadoPreferences.ptToken =
