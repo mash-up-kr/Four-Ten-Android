@@ -28,10 +28,10 @@ class NicknameViewModel(val repo: SignRepositoryImpl) : BaseViewModel() {
                 object : BaseResponse<BaseResponseData<JsonObject>> {
                     override fun onSuccess(data: BaseResponseData<JsonObject>) {
                         if (data.responseCode == ResponseCode.SUCCESS.Code) {
-                            toastField.postValue(Event<Int>(R.string.success_sign_up))
+                            toastField.value = Event<Int>(R.string.success_sign_up)
                             loginField.postValue(Event(0))
                         } else if (data.responseCode == ResponseCode.NICKNAME.Code) {
-                            toastField.postValue(Event<Int>(R.string.overlap_nickname))
+                            toastField.value = Event<Int>(R.string.overlap_nickname)
                         }
                     }
 

@@ -27,9 +27,9 @@ class SplashViewModel(val repo: FruitRepositorylmpl) : BaseViewModel() {
         repo.signInCheck(object : BaseResponse<BaseResponseData<JsonElement>> {
             override fun onSuccess(data: BaseResponseData<JsonElement>) {
                 if (data.responseCode == ResponseCode.SUCCESS.Code) {
-                    checkedSignInField.postValue(Event(true))
+                    checkedSignInField.value = Event(true)
                 } else {
-                    checkedSignInField.postValue(Event(false))
+                    checkedSignInField.value = Event(false)
                 }
             }
 

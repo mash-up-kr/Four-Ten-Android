@@ -30,9 +30,9 @@ class LoginViewModel(val repo: SignRepositoryImpl) : BaseViewModel() {
                                 data.responseData.toString(),
                                 SignInUserResponseData::class.java
                             ).token
-                        idCheckedField.postValue(Event(true))
+                        idCheckedField.value = (Event(true))
                     } else if (data.responseCode == ResponseCode.SIGNUP.Code) {
-                        idCheckedField.postValue(Event(false))
+                        idCheckedField.value = (Event(false))
                     }
                 }
 
