@@ -16,7 +16,6 @@ class NicknameActivity :
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding.lifecycleOwner = this
         binding.activity = this
 
         viewModel.toastField.observe(this, Observer {

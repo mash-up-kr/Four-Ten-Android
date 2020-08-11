@@ -23,14 +23,7 @@ class SplashActivity :
     override fun onCreate(savedInstanceState: Bundle?) {
         JadoPreferences.init(this)
         super.onCreate(savedInstanceState)
-        handler.postDelayed({
-            if (!JadoPreferences.ptToken.isNullOrEmpty()) {
-                viewModel.signInCheck()
-            } else {
-                start(LoginActivity::class, {})
-                finish()
-            }
-        }, 3000)
+        init()
 
         viewModel.checkedSignInField.observe(this, Observer {
             it.getContentIfNotHandled()?.let {
@@ -44,4 +37,16 @@ class SplashActivity :
             }
         })
     }
+
+    private fun init() {
+        handler.postDelayed({
+            if (!JadoPreferences.ptToken.isNullOrEmpty()) {
+                viewModel.signInCheck()
+            } else {
+                start(LoginActivity::class, {})
+                finish()
+            }
+        }, 3000)
+    }
 }
+

@@ -26,7 +26,6 @@ class LoginActivity : BaseActivity<ActivityLoginBinding, LoginViewModel>(R.layou
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding.activity = this
-        binding.lifecycleOwner = this
         GoogleSignInClient.init(this)
 
         viewModel.idCheckedField.observe(this, Observer {
