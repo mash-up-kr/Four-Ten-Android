@@ -22,6 +22,8 @@ class SplashActivity :
 
     private val handler = Handler()
 
+    private lateinit var initApp: Runnable
+
     override fun onCreate(savedInstanceState: Bundle?) {
         JadoPreferences.init(this)
         super.onCreate(savedInstanceState)
@@ -29,14 +31,15 @@ class SplashActivity :
     }
 
     private fun init() {
-        handler.postDelayed({
+        initApp = Runnable {
             if (!JadoPreferences.ptToken.isNullOrEmpty()) {
                 viewModel.signInCheck()
             } else {
                 start(LoginActivity::class, {})
                 finish()
             }
-        }, 3000)
+        }
+        handler.postDelayed(initApp, 3000)
         viewModel.checkedSignInField.observe(this, EventObserver<Boolean> {
             when (it) {
                 true -> {
@@ -49,6 +52,11 @@ class SplashActivity :
                 }
             }
         })
+    }
+
+    override fun onBackPressed() {
+        handler.removeCallbacks(initApp)
+        super.onBackPressed()
     }
 }
 
