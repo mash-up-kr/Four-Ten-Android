@@ -12,6 +12,7 @@ import com.mashup.fourten.data.repository.FruitRepositorylmpl
 import com.mashup.fourten.data.repository.SignRepositoryImpl
 import com.mashup.fourten.ui.base.BaseViewModel
 import com.mashup.fourten.util.Event
+import com.mashup.fourten.util.ext.e
 
 enum class ResponseCode(val Code: Int) {
     FAIL(0),

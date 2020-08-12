@@ -7,7 +7,9 @@ import com.mashup.fourten.R
 import com.mashup.fourten.databinding.ActivityNicknameBinding
 import com.mashup.fourten.ui.base.BaseActivity
 import com.mashup.fourten.ui.main.MainActivity
+import com.mashup.fourten.util.EventObserver
 import com.mashup.fourten.util.ext.start
+import com.mashup.fourten.util.ext.toast
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class NicknameActivity :
@@ -20,20 +22,16 @@ class NicknameActivity :
     }
 
     fun init() {
-
         binding.activity = this
 
-        viewModel.toastField.observe(this, Observer {
-            it.getContentIfNotHandled()?.let {
-                Toast.makeText(this, it, Toast.LENGTH_SHORT).show()
-            }
+        viewModel.toastField.observe(this, EventObserver<Int> {
+            this.toast(getString(it))
         })
 
-        viewModel.loginField.observe(this, Observer {
-            it.getContentIfNotHandled()?.let {
-                start(MainActivity::class)
-                finish()
-            }
+        viewModel.loginField.observe(this, EventObserver<Int> {
+            start(MainActivity::class)
+            finish()
         })
+
     }
 }

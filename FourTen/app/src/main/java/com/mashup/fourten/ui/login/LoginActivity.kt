@@ -13,6 +13,8 @@ import com.mashup.fourten.databinding.ActivityLoginBinding
 import com.mashup.fourten.ui.base.BaseActivity
 import com.mashup.fourten.ui.main.MainActivity
 import com.mashup.fourten.ui.nickname.NicknameActivity
+import com.mashup.fourten.util.Event
+import com.mashup.fourten.util.EventObserver
 import com.mashup.fourten.util.GoogleSignInClient
 import com.mashup.fourten.util.ext.start
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -53,14 +55,13 @@ class LoginActivity : BaseActivity<ActivityLoginBinding, LoginViewModel>(R.layou
         val googleSiginInButton: SignInButton = findViewById<SignInButton>(R.id.gb_sign_in_button)
         googleSiginInButton.setOnClickListener { this.signIn() }
         GoogleSignInClient.init(this)
-        viewModel.idCheckedField.observe(this, Observer {
-            it.getContentIfNotHandled()?.let {
-                if (it) {
+        viewModel.idCheckedField.observe(this, EventObserver<Boolean> {
+            when (it) {
+                true -> {
                     start(MainActivity::class)
                     finish()
-                } else {
-                    start(NicknameActivity::class)
                 }
+                false -> start(NicknameActivity::class)
             }
         })
     }

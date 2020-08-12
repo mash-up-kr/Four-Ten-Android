@@ -9,6 +9,8 @@ import com.mashup.fourten.databinding.ActivitySplashBinding
 import com.mashup.fourten.ui.base.BaseActivity
 import com.mashup.fourten.ui.completed.CompletedFruitsActivity
 import com.mashup.fourten.ui.login.LoginActivity
+import com.mashup.fourten.util.EventObserver
+import com.mashup.fourten.util.ext.e
 import com.mashup.fourten.util.ext.start
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -35,12 +37,13 @@ class SplashActivity :
                 finish()
             }
         }, 3000)
-        viewModel.checkedSignInField.observe(this, Observer {
-            it.getContentIfNotHandled()?.let {
-                if (it) {
+        viewModel.checkedSignInField.observe(this, EventObserver<Boolean> {
+            when (it) {
+                true -> {
                     start(CompletedFruitsActivity::class, {})
                     finish()
-                } else {
+                }
+                false -> {
                     start(LoginActivity::class, {})
                     finish()
                 }
