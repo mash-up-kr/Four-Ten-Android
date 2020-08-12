@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.util.Log
 import androidx.lifecycle.Observer
 import com.google.android.gms.auth.api.signin.GoogleSignIn
+import com.google.android.gms.common.SignInButton
 import com.google.android.gms.common.api.ApiException
 import com.mashup.fourten.R
 import com.mashup.fourten.data.local.JadoPreferences
@@ -26,8 +27,7 @@ class LoginActivity : BaseActivity<ActivityLoginBinding, LoginViewModel>(R.layou
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding.activity = this
-        GoogleSignInClient.init(this)
-
+        init()
         viewModel.idCheckedField.observe(this, Observer {
             it.getContentIfNotHandled()?.let {
                 if (it) {
@@ -57,5 +57,11 @@ class LoginActivity : BaseActivity<ActivityLoginBinding, LoginViewModel>(R.layou
     fun signIn() {
         val signInIntent = GoogleSignInClient.mGoogleSignInClient.getSignInIntent()
         startActivityForResult(signInIntent, RC_SIGN_IN)
+    }
+
+    fun init() {
+        val googleSiginInButton: SignInButton = findViewById<SignInButton>(R.id.gb_sign_in_button)
+        googleSiginInButton.setOnClickListener { this.signIn() }
+        GoogleSignInClient.init(this)
     }
 }
