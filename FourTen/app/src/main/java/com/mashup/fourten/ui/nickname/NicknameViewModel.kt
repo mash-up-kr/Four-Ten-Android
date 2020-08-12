@@ -20,7 +20,7 @@ class NicknameViewModel(val repo: SignRepositoryImpl) : BaseViewModel() {
 
     private val _loginField = MutableLiveData<Event<Int>>()
 
-    val nicknameField: LiveData<String> = _nicknameField
+    var nicknameField: MutableLiveData<String> = _nicknameField
 
     val toastField: LiveData<Event<Int>> = _toastField
 
