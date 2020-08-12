@@ -14,7 +14,6 @@ object GoogleSignInClient {
         val gso =
             GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestIdToken(context.getString(R.string.server_client_id))
-                .requestEmail()
                 .build()
         mGoogleSignInClient = GoogleSignIn.getClient(context, gso)
     }
