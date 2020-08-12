@@ -24,18 +24,6 @@ class SplashActivity :
         JadoPreferences.init(this)
         super.onCreate(savedInstanceState)
         init()
-
-        viewModel.checkedSignInField.observe(this, Observer {
-            it.getContentIfNotHandled()?.let {
-                if (it) {
-                    start(CompletedFruitsActivity::class, {})
-                    finish()
-                } else {
-                    start(LoginActivity::class, {})
-                    finish()
-                }
-            }
-        })
     }
 
     private fun init() {
@@ -47,6 +35,17 @@ class SplashActivity :
                 finish()
             }
         }, 3000)
+        viewModel.checkedSignInField.observe(this, Observer {
+            it.getContentIfNotHandled()?.let {
+                if (it) {
+                    start(CompletedFruitsActivity::class, {})
+                    finish()
+                } else {
+                    start(LoginActivity::class, {})
+                    finish()
+                }
+            }
+        })
     }
 }
 

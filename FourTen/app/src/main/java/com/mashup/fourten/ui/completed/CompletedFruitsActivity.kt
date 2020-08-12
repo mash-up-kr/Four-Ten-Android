@@ -15,11 +15,11 @@ class CompletedFruitsActivity :
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding.activity = this
         init()
     }
 
     private fun init() {
+        binding.activity = this
         val tabLayout = findViewById<TabLayout>(R.id.tlTab)
         val pager = findViewById<ViewPager2>(R.id.pgCompletedFruits)
         pager.adapter = CompletedFruitsViewPager(this)

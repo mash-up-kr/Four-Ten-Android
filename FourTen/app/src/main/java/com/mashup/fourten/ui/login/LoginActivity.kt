@@ -26,18 +26,7 @@ class LoginActivity : BaseActivity<ActivityLoginBinding, LoginViewModel>(R.layou
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding.activity = this
         init()
-        viewModel.idCheckedField.observe(this, Observer {
-            it.getContentIfNotHandled()?.let {
-                if (it) {
-                    start(MainActivity::class)
-                    finish()
-                } else {
-                    start(NicknameActivity::class)
-                }
-            }
-        })
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -60,8 +49,19 @@ class LoginActivity : BaseActivity<ActivityLoginBinding, LoginViewModel>(R.layou
     }
 
     fun init() {
+        binding.activity = this
         val googleSiginInButton: SignInButton = findViewById<SignInButton>(R.id.gb_sign_in_button)
         googleSiginInButton.setOnClickListener { this.signIn() }
         GoogleSignInClient.init(this)
+        viewModel.idCheckedField.observe(this, Observer {
+            it.getContentIfNotHandled()?.let {
+                if (it) {
+                    start(MainActivity::class)
+                    finish()
+                } else {
+                    start(NicknameActivity::class)
+                }
+            }
+        })
     }
 }
