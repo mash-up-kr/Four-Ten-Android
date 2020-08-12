@@ -10,8 +10,12 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import com.mashup.fourten.R
 import com.mashup.fourten.databinding.FragmentCompletedFruitsBinding
+import com.mashup.fourten.ui.completed.CompletedFruitsViewPager.Companion.STATE
+import com.mashup.fourten.util.ext.e
 
-class CompletedFruitsFragment(val state: String) : Fragment() {
+class CompletedFruitsFragment() : Fragment() {
+
+    lateinit var state: String
 
     val viewModel: CompletedFruitsViewModel by activityViewModels()
 
@@ -20,6 +24,7 @@ class CompletedFruitsFragment(val state: String) : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        state = this.arguments?.getString(STATE) ?: ""
         val binding: FragmentCompletedFruitsBinding =
             DataBindingUtil.inflate(inflater, R.layout.fragment_completed_fruits, container, false)
         binding.viewModel = viewModel
