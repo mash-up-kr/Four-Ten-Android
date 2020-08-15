@@ -27,11 +27,13 @@ class LoginViewModel(val repo: SignRepositoryImpl) : BaseViewModel() {
                 override fun onSuccess(data: BaseResponseData<JsonObject>) {
                     if (data.responseCode == ResponseCode.SUCCESS.Code) {
                         val gson = GsonBuilder().setPrettyPrinting().create()
-                        JadoPreferences.ptToken =
-                            gson.fromJson(
-                                data.responseData.toString(),
-                                SignInUserResponseData::class.java
-                            ).token
+                        val json = gson.fromJson(
+                            data.responseData.toString(),
+                            SignInUserResponseData::class.java
+                        )
+                        if (json is SignInUserResponseData) {
+                            JadoPreferences.ptToken = json.token
+                        }
                         _idCheckedField.value = (Event(true))
                     } else if (data.responseCode == ResponseCode.SIGNUP.Code) {
                         _idCheckedField.value = (Event(false))
