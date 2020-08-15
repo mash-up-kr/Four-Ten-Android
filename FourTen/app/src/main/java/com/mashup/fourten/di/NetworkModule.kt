@@ -8,6 +8,7 @@ import com.mashup.fourten.data.remote.api.SignApiService
 import io.reactivex.schedulers.Schedulers
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
+import okhttp3.Request
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.core.qualifier.named
 import org.koin.dsl.module
@@ -24,10 +25,15 @@ val networkModule = module(override = true) {
     single(named("headerInterceptor")) {
         Interceptor {
             val original = it.request()
-            val request = original.newBuilder()
+            val unbuildedRequest = original.newBuilder()
                 .method(original.method(), original.body())
-                .addHeader("PT-TOKEN", JadoPreferences.ptToken)
-                .build()
+            lateinit var request: Request
+            if (!JadoPreferences.ptToken.isNullOrEmpty()) {
+                request = unbuildedRequest.addHeader("PT-TOKEN", JadoPreferences.ptToken)
+                    .build()
+            } else {
+                request = unbuildedRequest.build()
+            }
             it.proceed(request)
         }
     }
