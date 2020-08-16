@@ -40,6 +40,12 @@ buildscript {
         rxandroid_version = '2.1.1'
         rxkotlin_version = '2.4.0'
 
+        // lottie
+        lottie_version = '3.4.1'
+
+        // apng
+        apng_version = '1.9.1'
+
     }
     repositories {
         google()

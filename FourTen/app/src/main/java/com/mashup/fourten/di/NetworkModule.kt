@@ -2,6 +2,7 @@ package com.mashup.fourten.di
 
 import com.google.gson.GsonBuilder
 import com.mashup.fourten.BuildConfig
+import com.mashup.fourten.data.remote.api.Api
 import com.mashup.fourten.data.remote.api.ApiService
 import io.reactivex.schedulers.Schedulers
 import okhttp3.Interceptor
@@ -14,8 +15,10 @@ import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
-const val BASE_URL = "https://naver.com"
+const val BASE_URL = Api.BASE_URL
 private const val TIMEOUT: Long = 10L
+
+private const val TEMP_TOKEN = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwiaWF0IjoxNTk1NzEzMjQ0LCJleHAiOjE1OTgzMDUyNDR9.kdYgdORtjR5Il7EJ4IQWWM1mRxLXKFaDRUOwWT4U2mE"
 
 val networkModule = module(override = true) {
 
@@ -23,6 +26,8 @@ val networkModule = module(override = true) {
         Interceptor {
             val original = it.request()
             val request = original.newBuilder()
+                .removeHeader("PT-TOKEN")
+                .addHeader("PT-TOKEN", TEMP_TOKEN)
                 .method(original.method(), original.body())
                 .build()
             it.proceed(request)
@@ -44,7 +49,8 @@ val networkModule = module(override = true) {
     }
 
     single {
-        OkHttpClient.Builder().addInterceptor(get(named("headerInterceptor")))
+        OkHttpClient.Builder()
+            .addInterceptor(get(named("headerInterceptor")))
             .addInterceptor(get(named("httpLoggingInterceptor")))
             .writeTimeout(TIMEOUT, TimeUnit.SECONDS)
             .readTimeout(TIMEOUT, TimeUnit.SECONDS)
