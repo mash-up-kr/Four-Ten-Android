@@ -15,7 +15,9 @@ abstract class BaseActivity<B : ViewDataBinding, VM : BaseViewModel>(
     val layoutRes: Int
 ) : AppCompatActivity() {
     abstract val viewModel: VM
-    protected open lateinit var binding: B
+    protected val binding: B by lazy {
+        DataBindingUtil.setContentView<B>(this, layoutRes)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,6 +26,11 @@ abstract class BaseActivity<B : ViewDataBinding, VM : BaseViewModel>(
         binding.lifecycleOwner = this
     }
 
+        binding.run {
+            lifecycleOwner = this@BaseActivity
+            setVariable(BR.viewModel, viewModel)
+        }
+    }
 
     override fun onDestroy() {
         super.onDestroy()

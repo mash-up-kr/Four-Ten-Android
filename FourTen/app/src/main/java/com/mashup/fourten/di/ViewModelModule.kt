@@ -29,4 +29,5 @@ val viewModelModule = module(override = true) {
     viewModel {
         CompletedFruitsViewModel(get())
     }
+
 }

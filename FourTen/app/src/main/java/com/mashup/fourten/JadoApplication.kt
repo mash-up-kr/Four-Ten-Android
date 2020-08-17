@@ -17,7 +17,9 @@ class JadoApplication : Application() {
             remoteDataSourceModule,
             localDataSourceModule
         )
+
         NotificationBuilder.createNotificationChannel(this)
+
     }
 
 }

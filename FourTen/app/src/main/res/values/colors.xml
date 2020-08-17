@@ -8,4 +8,8 @@
     <color name="black">#131313</color>
     <color name="mushroom">#a8a6a6</color>
     <color name="pale_lilac">#eaeaec</color>
+
+    <color name="navy">#2c3242</color>
+    <color name="textBlack">#2c3242</color>
+
 </resources>

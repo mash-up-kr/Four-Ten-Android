@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">FourTen</string>
+<<<<<<< HEAD
     <string name="server_client_id">370014456030-ps8oqm93ugrmvqmpujof7cs3a9fl88p0.apps.googleusercontent.com</string>
     <string name="default_notification_channel_id">fcm</string>
     <string name="notification_default_channel_id">alert channel</string>
@@ -8,4 +9,7 @@
     <string name="put_nickname">닉네임을 제대로 넣어주세요!</string>
     <string name="overlap_nickname">이미 사용중인 닉네임입니다!</string>
     <string name="success_sign_up">회원가입 성공!</string>
+
+    <string name="main_list_title">내 습관 한 번에 보기</string>
+    
 </resources>
