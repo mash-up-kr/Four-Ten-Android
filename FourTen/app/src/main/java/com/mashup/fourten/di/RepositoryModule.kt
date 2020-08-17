@@ -1,7 +1,5 @@
 package com.mashup.fourten.di
 
-<<<<<<< HEAD
-
 import com.mashup.fourten.data.repository.FruitRepositorylmpl
 import com.mashup.fourten.data.repository.SignRepositoryImpl
 import com.mashup.fourten.data.repository.HabitRepository

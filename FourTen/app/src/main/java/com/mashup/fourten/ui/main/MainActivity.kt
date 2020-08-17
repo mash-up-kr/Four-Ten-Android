@@ -1,9 +1,7 @@
 package com.mashup.fourten.ui.main
 
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
 import android.graphics.drawable.Drawable
-import android.os.Bundle
 import androidx.lifecycle.Observer
 import androidx.vectordrawable.graphics.drawable.Animatable2Compat
 import com.linecorp.apng.ApngDrawable

@@ -100,4 +100,5 @@ dependencies {
     //fragment ktx
     implementation "androidx.fragment:fragment-ktx:$fragment_ktx_version"
 
+    implementation "com.linecorp:apng:$apng_version"
 }
