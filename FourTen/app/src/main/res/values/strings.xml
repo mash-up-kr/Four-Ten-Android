@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">FourTen</string>
+    
+    <string name="main_list_title">내 습관 한 번에 보기</string>
+    
 </resources>
