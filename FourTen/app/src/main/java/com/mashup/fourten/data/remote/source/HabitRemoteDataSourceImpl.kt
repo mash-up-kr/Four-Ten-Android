@@ -1,16 +1,16 @@
 package com.mashup.fourten.data.remote.source
 
-import com.mashup.fourten.data.model.HabitItem
-import com.mashup.fourten.data.remote.api.ApiService
+import com.mashup.fourten.data.model.response.HabitListResponseData
+import com.mashup.fourten.data.remote.api.FruitApiService
 import io.reactivex.Single
 import io.reactivex.schedulers.Schedulers
 
 class HabitRemoteDataSourceImpl(
-    private val api: ApiService
+    private val api: FruitApiService
 ): HabitRemoteDataSource {
 
-    override fun getHabitList(): Single<List<HabitItem>> {
-        return api.getHabitList()
+    override fun getHabitList(): Single<List<HabitListResponseData>> {
+        return api.requestHabitList()
             .map { it.responseData }
             .subscribeOn(Schedulers.io())
     }

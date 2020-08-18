@@ -5,8 +5,6 @@ import com.mashup.fourten.BuildConfig
 import com.mashup.fourten.data.local.JadoPreferences
 import com.mashup.fourten.data.remote.api.FruitApiService
 import com.mashup.fourten.data.remote.api.SignApiService
-import com.mashup.fourten.data.remote.api.Api
-import com.mashup.fourten.data.remote.api.ApiService
 import io.reactivex.schedulers.Schedulers
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
@@ -88,4 +86,5 @@ val networkModule = module(override = true) {
     single(named("beforeLoginApi")) {
         get<Retrofit>(named("beforeLoginRetrofit")).create(SignApiService::class.java)
     }
+
 }
