@@ -12,4 +12,9 @@
     <color name="navy">#2c3242</color>
     <color name="textBlack">#2c3242</color>
 
+    <color name="pale_grey">#f1f3f5</color>
+    <color name="steel">#7f858e</color>
+    <color name="silver">#d5d6d9</color>
+    <color name="battleship_grey">#6b707a</color>
+
 </resources>

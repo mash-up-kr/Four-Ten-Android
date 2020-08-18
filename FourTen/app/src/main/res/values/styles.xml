@@ -7,4 +7,8 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="customProgressBarStyle" parent="Widget.AppCompat.ProgressBar.Horizontal">
+        <item name="android:progressDrawable">@drawable/bg_progress_horizontal_custom</item>
+    </style>
+
 </resources>
