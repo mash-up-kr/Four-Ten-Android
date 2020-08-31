@@ -10,5 +10,6 @@
     <string name="success_sign_up">회원가입 성공!</string>
 
     <string name="main_list_title">내 습관 한 번에 보기</string>
-    
+    <string name="habit_list_title">내 습관 한번에 보기</string>
+
 </resources>

@@ -3,6 +3,7 @@ package com.mashup.fourten.di
 import com.mashup.fourten.ui.completed.CompletedFruitsViewModel
 import com.mashup.fourten.ui.login.LoginViewModel
 import com.mashup.fourten.ui.main.MainViewModel
+import com.mashup.fourten.ui.main.list.HabitListViewModel
 import com.mashup.fourten.ui.nickname.NicknameViewModel
 import com.mashup.fourten.ui.setting.SettingViewModel
 import com.mashup.fourten.ui.splash.SplashViewModel
@@ -16,6 +17,7 @@ val viewModelModule = module(override = true) {
     viewModel { NicknameViewModel(get()) }
 
     viewModel { MainViewModel(get()) }
+    viewModel { HabitListViewModel(get()) }
 
     viewModel { CompletedFruitsViewModel(get()) }
 
