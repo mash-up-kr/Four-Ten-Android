@@ -1,110 +1,122 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="120dp">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <ImageView
-        android:id="@+id/imgCharacterBg"
-        android:layout_width="98dp"
-        android:layout_height="match_parent"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="11dp"
-        android:layout_marginBottom="11dp"
-        android:background="@drawable/bg_image_pale_grey_20_"
-        android:scaleType="fitXY"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <data>
 
-    <ImageView
-        android:id="@+id/imgCharacter"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="@id/imgCharacterBg"
-        app:layout_constraintLeft_toLeftOf="@id/imgCharacterBg"
-        app:layout_constraintRight_toRightOf="@id/imgCharacterBg"
-        app:layout_constraintTop_toTopOf="@id/imgCharacterBg"
-        tools:background="@drawable/app_icon" />
+        <variable
+            name="item"
+            type="com.mashup.fourten.data.model.Habit" />
+    </data>
 
-    <TextView
-        android:id="@+id/tvTitle"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="11dp"
-        android:layout_marginTop="19dp"
-        android:layout_marginEnd="11dp"
-        android:includeFontPadding="false"
-        android:singleLine="true"
-        android:textColor="@color/black"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintLeft_toRightOf="@id/imgCharacterBg"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="디자인 포토폴리오 완성하기" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:layout_marginBottom="8dp">
 
-    <ProgressBar
-        android:id="@+id/progressBarPercent"
-        style="@style/customProgressBarStyle"
-        android:layout_width="0dp"
-        android:layout_height="8dp"
-        android:layout_marginStart="11dp"
-        android:layout_marginTop="4dp"
-        android:layout_marginEnd="11dp"
-        app:layout_constraintLeft_toRightOf="@id/imgCharacterBg"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvTitle" />
+        <ImageView
+            android:id="@+id/imgCharacterBg"
+            android:layout_width="98dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="11dp"
+            android:layout_marginBottom="11dp"
+            android:background="@drawable/bg_image_pale_grey_20_"
+            android:scaleType="fitXY"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/tvProgress"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="11dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="11dp"
-        android:includeFontPadding="false"
-        android:singleLine="true"
-        android:textColor="@color/steel"
-        android:textSize="12sp"
-        app:layout_constraintLeft_toRightOf="@id/imgCharacterBg"
-        app:layout_constraintTop_toBottomOf="@id/progressBarPercent"
-        tools:text="1/10" />
+        <ImageView
+            android:id="@+id/imgCharacter"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="@id/imgCharacterBg"
+            app:layout_constraintLeft_toLeftOf="@id/imgCharacterBg"
+            app:layout_constraintRight_toRightOf="@id/imgCharacterBg"
+            app:layout_constraintTop_toTopOf="@id/imgCharacterBg"
+            tools:background="@drawable/app_icon" />
 
-    <ImageView
-        android:id="@+id/imgHeart"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="13dp"
-        android:background="@drawable/love_fill"
-        app:layout_constraintLeft_toLeftOf="@id/tvProgress"
-        app:layout_constraintTop_toBottomOf="@id/tvProgress" />
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="11dp"
+            android:layout_marginTop="19dp"
+            android:layout_marginEnd="11dp"
+            android:includeFontPadding="false"
+            android:singleLine="true"
+            android:text="@{item.title}"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toRightOf="@id/imgCharacterBg"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="디자인 포토폴리오 완성하기" />
 
-    <TextView
-        android:id="@+id/tvBonus"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="7dp"
-        android:includeFontPadding="false"
-        android:singleLine="true"
-        android:textColor="@color/battleship_grey"
-        android:textSize="14sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@id/imgHeart"
-        app:layout_constraintStart_toEndOf="@id/imgHeart"
-        app:layout_constraintTop_toTopOf="@id/imgHeart"
-        tools:text="1/10" />
+        <ProgressBar
+            android:id="@+id/progressBarPercent"
+            style="@style/customProgressBarStyle"
+            android:layout_width="0dp"
+            android:layout_height="8dp"
+            android:layout_marginStart="11dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="11dp"
+            app:layout_constraintLeft_toRightOf="@id/imgCharacterBg"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvTitle" />
 
-    <Button
-        android:layout_width="111dp"
-        android:layout_height="32dp"
-        android:background="@drawable/bg_button_grapefruit_radius_20"
-        android:gravity="center"
-        android:textColor="@android:color/white"
-        app:layout_constraintEnd_toEndOf="@id/progressBarPercent"
-        app:layout_constraintTop_toBottomOf="@id/tvProgress"
-        tools:text="해냈습니다!" />
+        <TextView
+            android:id="@+id/tvProgress"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="11dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="11dp"
+            android:includeFontPadding="false"
+            android:singleLine="true"
+            android:textColor="@color/steel"
+            android:textSize="12sp"
+            app:layout_constraintLeft_toRightOf="@id/imgCharacterBg"
+            app:layout_constraintTop_toBottomOf="@id/progressBarPercent"
+            tools:text="1/10" />
+
+        <ImageView
+            android:id="@+id/imgHeart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="13dp"
+            android:background="@drawable/love_fill"
+            app:layout_constraintLeft_toLeftOf="@id/tvProgress"
+            app:layout_constraintTop_toBottomOf="@id/tvProgress" />
+
+        <TextView
+            android:id="@+id/tvBonus"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="7dp"
+            android:includeFontPadding="false"
+            android:singleLine="true"
+            android:textColor="@color/battleship_grey"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/imgHeart"
+            app:layout_constraintStart_toEndOf="@id/imgHeart"
+            app:layout_constraintTop_toTopOf="@id/imgHeart"
+            tools:text="1/10" />
+
+        <Button
+            android:layout_width="111dp"
+            android:layout_height="32dp"
+            android:background="@drawable/bg_button_grapefruit_radius_20"
+            android:gravity="center"
+            android:textColor="@android:color/white"
+            app:layout_constraintEnd_toEndOf="@id/progressBarPercent"
+            app:layout_constraintTop_toBottomOf="@id/tvProgress"
+            tools:text="해냈습니다!" />
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
