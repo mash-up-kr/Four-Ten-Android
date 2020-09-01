@@ -17,7 +17,7 @@ interface SignApiService {
     @POST("user/sign-in")
     fun requestSignIn(
         @Body params: SignInRequestData
-    ): Single<BaseResponseData<JsonObject>>
+    ): Single<BaseResponseData<JsonElement>>
 
     @POST("user/sign-up")
     fun requestSignUp(

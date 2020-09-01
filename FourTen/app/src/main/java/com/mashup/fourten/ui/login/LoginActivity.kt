@@ -61,7 +61,10 @@ class LoginActivity : BaseActivity<ActivityLoginBinding, LoginViewModel>(R.layou
                     start(MainActivity::class)
                     finish()
                 }
-                false -> start(NicknameActivity::class)
+                false -> {
+                    start(NicknameActivity::class)
+                    finish()
+                }
             }
         })
     }

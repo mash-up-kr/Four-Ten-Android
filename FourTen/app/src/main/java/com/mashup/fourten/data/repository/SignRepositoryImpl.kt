@@ -14,7 +14,7 @@ class SignRepositoryImpl(private val signApi: SignApiService) : SignRepository {
 
     override fun signIn(
         token: String,
-        callback: BaseResponse<BaseResponseData<JsonObject>>
+        callback: BaseResponse<BaseResponseData<JsonElement>>
     ): Disposable {
         return signApi.requestSignIn(SignInRequestData(SnsType.GOOGLE.snsType, token))
             .observeSingle(callback)

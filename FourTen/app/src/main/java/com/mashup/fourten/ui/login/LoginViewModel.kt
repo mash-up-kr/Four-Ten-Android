@@ -23,8 +23,8 @@ class LoginViewModel(val repo: SignRepositoryImpl) : BaseViewModel() {
     fun idCheck() {
         repo.signIn(
             JadoPreferences.googleToken,
-            object : BaseResponse<BaseResponseData<JsonObject>> {
-                override fun onSuccess(data: BaseResponseData<JsonObject>) {
+            object : BaseResponse<BaseResponseData<JsonElement>> {
+                override fun onSuccess(data: BaseResponseData<JsonElement>) {
                     if (data.responseCode == ResponseCode.SUCCESS.Code) {
                         val gson = GsonBuilder().setPrettyPrinting().create()
                         val json = gson.fromJson(
