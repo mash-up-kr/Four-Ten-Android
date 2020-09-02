@@ -9,10 +9,6 @@
             name="viewModel"
             type="com.mashup.fourten.ui.main.MainViewModel" />
 
-        <variable
-            name="typeStatic"
-            type="com.mashup.fourten.ui.main.MainViewModel.Companion" />
-
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -44,11 +40,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="8dp"
-                android:onClick="@{()->viewModel.changeViewType()}"
-                android:src="@{viewModel.viewType == typeStatic.MAIN_VIEW_TYPE_CARD_SLIDE ? @drawable/ic_list : @drawable/ic_card}"
+                android:onClick="@{()->viewModel.startHabitList()}"
+                android:src="@drawable/ic_list"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@id/btnCollection"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.636" />
 
             <ImageView
                 android:id="@+id/btnCollection"
@@ -63,8 +60,8 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-
         <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/viewPager"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             app:layout_constraintBottom_toBottomOf="parent"

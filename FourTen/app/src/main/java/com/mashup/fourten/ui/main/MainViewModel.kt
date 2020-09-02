@@ -2,6 +2,8 @@ package com.mashup.fourten.ui.main
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import com.mashup.fourten.data.model.Habit
+import com.mashup.fourten.data.model.State
 import com.mashup.fourten.data.remote.source.HabitRemoteDataSource
 import com.mashup.fourten.ui.base.BaseViewModel
 import com.mashup.fourten.util.Event
@@ -22,24 +24,37 @@ class MainViewModel(
     val startHabitMakeActivity: LiveData<Event<Unit>>
         get() = _startHabitMakeActivity
 
-    private val _viewType = MutableLiveData<Int>()
-    val viewType: LiveData<Int>
-        get() = _viewType
+    private val _startHabitListActivity = MutableLiveData<Event<Unit>>()
+    val startHabitListActivity: LiveData<Event<Unit>>
+        get() = _startHabitListActivity
+
+    private val _habitList = MutableLiveData<List<Habit>>()
+    val habitList: LiveData<List<Habit>>
+        get() = _habitList
 
     init {
-        _viewType.value = MAIN_VIEW_TYPE_LIST
+        getMyHabit()
     }
 
-    fun changeViewType() {
-        _viewType.value =
-            if (viewType.value == MAIN_VIEW_TYPE_CARD_SLIDE) MAIN_VIEW_TYPE_LIST
-            else MAIN_VIEW_TYPE_CARD_SLIDE
+    private fun getMyHabit() {
+//        habitRemoteDataSource.getHabitList()
 
+        _habitList.value = arrayListOf(
+            Habit(
+                0, "2020-09-02", listOf(), "", 10,
+                5, 2, 2, State.ING.name, "영어단어 외우기", 20
+            ),
+
+            Habit(
+                0, "2020-09-02", listOf(), "", 10,
+                5, 2, 2, State.ING.name, "노래부르기", 20
+            )
+        )
     }
 
-    companion object {
-        val MAIN_VIEW_TYPE_CARD_SLIDE = 0
-        private const val MAIN_VIEW_TYPE_LIST = 1
+
+    fun startHabitList() {
+        _startHabitListActivity.value = Event(Unit)
     }
 
 }
