@@ -13,3 +13,5 @@ data class Habit(
     val title: String,
     val totalCount: Int
 )
+
+enum class State { ING, DONE, FAIL }
