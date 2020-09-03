@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <declare-styleable name="HeartCounter">
+    <declare-styleable name="JDHeartCounter">
         <attr name="maxHeart" format="integer" />
         <attr name="fillHeart" format="integer" />
     </declare-styleable>
+
+    <declare-styleable name="JDPrimaryEnabledBtn">
+        <attr name="activeText" format="string" />
+        <attr name="inactiveText" format="string" />
+    </declare-styleable>
+
 </resources>

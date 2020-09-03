@@ -18,9 +18,10 @@ class JDHeartCountView @JvmOverloads constructor(
     init {
         attrs?.let {
             val typedArray =
-                context.obtainStyledAttributes(it, R.styleable.HeartCounter, defStyleAttr, 0)
-            maxHeartCnt = typedArray.getInt(R.styleable.HeartCounter_maxHeart, maxHeartCnt)
-            currentHeartCnt = typedArray.getInt(R.styleable.HeartCounter_fillHeart, currentHeartCnt)
+                context.obtainStyledAttributes(it, R.styleable.JDHeartCounter, defStyleAttr, 0)
+            maxHeartCnt = typedArray.getInt(R.styleable.JDHeartCounter_maxHeart, maxHeartCnt)
+            currentHeartCnt =
+                typedArray.getInt(R.styleable.JDHeartCounter_fillHeart, currentHeartCnt)
             typedArray.recycle()
 
             makeView()
