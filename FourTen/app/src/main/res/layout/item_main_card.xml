@@ -70,14 +70,16 @@
             app:layout_constraintStart_toStartOf="@+id/textView4"
             app:layout_constraintTop_toBottomOf="@id/heartCountView" />
 
-        <Button
+        <com.mashup.fourten.ui.custom.JDPrimaryEnabledBtn
             android:id="@+id/btnConfirm"
             android:layout_width="0dp"
-            android:layout_height="43dp"
+            android:layout_height="48dp"
             android:layout_marginBottom="22dp"
-            android:background="@drawable/bg_button_grapefruit_radius_20"
-            android:textColor="@android:color/white"
             android:textSize="16sp"
+            android:enabled="true"
+            android:textStyle="bold"
+            app:activeText="@string/text_done"
+            app:inactiveText="@string/text_later"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/progressBarPercent"
             app:layout_constraintStart_toStartOf="@+id/progressBarPercent"

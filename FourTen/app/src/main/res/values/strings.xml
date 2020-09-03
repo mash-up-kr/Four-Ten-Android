@@ -12,4 +12,8 @@
     <string name="main_list_title">내 습관 한 번에 보기</string>
     <string name="habit_list_title">내 습관 한번에 보기</string>
 
+    <string name="text_done">해냈습니다!</string>
+    <string name="text_later">나중에 다시 와요</string>
+    <string name="text_later_short">나중에 와요</string>
+
 </resources>
