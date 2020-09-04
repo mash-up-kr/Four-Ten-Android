@@ -1,9 +1,16 @@
 package com.mashup.fourten.ui.main
 
+import android.content.Context
+import android.graphics.Rect
 import android.os.Bundle
 import android.graphics.drawable.Drawable
+import android.view.View
+import androidx.annotation.DimenRes
 import androidx.lifecycle.Observer
+import androidx.recyclerview.widget.RecyclerView
 import androidx.vectordrawable.graphics.drawable.Animatable2Compat
+import androidx.viewpager2.widget.MarginPageTransformer
+import androidx.viewpager2.widget.ViewPager2
 import com.linecorp.apng.ApngDrawable
 import com.linecorp.apng.RepeatAnimationCallback
 import com.mashup.fourten.R
@@ -16,6 +23,7 @@ import com.mashup.fourten.ui.main.list.HabitListActivity
 import com.mashup.fourten.util.EventObserver
 import com.mashup.fourten.util.ext.start
 import org.koin.androidx.viewmodel.ext.android.viewModel
+import java.lang.Math.abs
 
 class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>(
     R.layout.activity_main
@@ -53,6 +61,31 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>(
 
     private fun setViewPager() {
         binding.viewPager.adapter = viewPagerAdapter
+        binding.viewPager.setPageTransformer(MarginPageTransformer(20))
+        binding.viewPager.setPadding(40,0,40,0)
+
+        binding.viewPager.run {
+            offscreenPageLimit = 1
+            setPageTransformer(getPageTransformer())
+            addItemDecoration(HorizontalMarginItemDecoration(
+                context,
+                R.dimen.viewpager_current_item_horizontal_margin
+            ))
+        }
+    }
+
+    private fun getPageTransformer() : ViewPager2.PageTransformer {
+        val nextItemVisiblePx = resources.getDimension(R.dimen.viewpager_next_item_visible)
+        val currentItemHorizontalMarginPx = resources.getDimension(R.dimen.viewpager_current_item_horizontal_margin)
+        val pageTranslationX = nextItemVisiblePx + currentItemHorizontalMarginPx
+        val pageTransformer = ViewPager2.PageTransformer { page: View, position: Float ->
+            page.translationX = -pageTranslationX * position
+            // Next line scales the item's height. You can remove it if you don't want this effect
+            page.scaleY = 1 - (0.25f * abs(position))
+            // If you want a fading effect uncomment the next line:
+            // page.alpha = 0.25f + (1 - abs(position))
+        }
+        return pageTransformer
     }
 
 
@@ -99,3 +132,18 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>(
 class mainViewPagerAdapter : BaseRecyclerAdapter<Habit, ItemMainCardBinding>(
     R.layout.item_main_card
 )
+
+class HorizontalMarginItemDecoration(context: Context, @DimenRes horizontalMarginInDp: Int) :
+    RecyclerView.ItemDecoration() {
+
+    private val horizontalMarginInPx: Int =
+        context.resources.getDimension(horizontalMarginInDp).toInt()
+
+    override fun getItemOffsets(
+        outRect: Rect, view: View, parent: RecyclerView, state: RecyclerView.State
+    ) {
+        outRect.right = horizontalMarginInPx
+        outRect.left = horizontalMarginInPx
+    }
+
+}
