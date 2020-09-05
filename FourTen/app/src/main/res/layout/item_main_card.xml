@@ -14,7 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:cardCornerRadius="20dp"
-        app:cardElevation="20dp"
+        app:cardElevation="6dp"
         app:cardUseCompatPadding="true">
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -44,6 +44,8 @@
                 android:background="@drawable/textbox"
                 android:gravity="center"
                 android:includeFontPadding="false"
+                android:paddingBottom="7dp"
+                android:singleLine="true"
                 android:text="@{item.title}"
                 android:textColor="@android:color/black"
                 android:textSize="14sp"
@@ -55,10 +57,12 @@
             <ImageView
                 android:id="@+id/ivCharacter"
                 android:layout_width="0dp"
-                android:layout_height="180dp"
+                android:layout_height="0dp"
                 android:layout_marginStart="30dp"
                 android:layout_marginTop="14dp"
                 android:layout_marginEnd="30dp"
+                android:layout_marginBottom="30dp"
+                app:layout_constraintBottom_toTopOf="@+id/heartCountView"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView4" />
@@ -68,10 +72,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="28dp"
+                android:layout_marginBottom="16dp"
                 app:fillHeart="2"
+                app:layout_constraintBottom_toTopOf="@+id/progressBarPercent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/ivCharacter"
                 app:maxHeart="5" />
 
             <com.mashup.fourten.ui.custom.JDPrimaryEnabledBtn
@@ -87,7 +92,6 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@+id/progressBarPercent"
                 app:layout_constraintStart_toStartOf="@+id/progressBarPercent"
-                app:layout_constraintTop_toBottomOf="@id/progressBarPercent"
                 tools:text="해냈습니다!" />
 
             <ProgressBar
@@ -96,9 +100,10 @@
                 android:layout_width="0dp"
                 android:layout_height="8dp"
                 android:layout_marginTop="16dp"
+                android:layout_marginBottom="14dp"
+                app:layout_constraintBottom_toTopOf="@+id/btnConfirm"
                 app:layout_constraintEnd_toEndOf="@+id/textView4"
-                app:layout_constraintStart_toStartOf="@+id/textView4"
-                app:layout_constraintTop_toBottomOf="@id/heartCountView" />
+                app:layout_constraintStart_toStartOf="@+id/textView4" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
