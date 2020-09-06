@@ -48,6 +48,21 @@ class MainViewModel(
             Habit(
                 0, "2020-09-02", listOf(), "", 10,
                 5, 2, 2, State.ING.name, "노래부르기", 20
+            ),
+
+            Habit(
+                0, "2020-09-02", listOf(), "", 10,
+                5, 2, 2, State.ING.name, "노래부르기", 20
+            ),
+
+            Habit(
+                0, "2020-09-02", listOf(), "", 10,
+                5, 2, 2, State.ING.name, "노래부르기", 20
+            ),
+
+            Habit(
+                0, "2020-09-02", listOf(), "", 10,
+                5, 2, 2, State.ING.name, "노래부르기", 20
             )
         )
     }
