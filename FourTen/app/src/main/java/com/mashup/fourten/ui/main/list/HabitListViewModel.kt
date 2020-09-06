@@ -13,6 +13,9 @@ class HabitListViewModel(val habitRemoteDataSource: HabitRemoteDataSource) : Bas
     private val _habits = MutableLiveData<List<Habit>>()
     val habits: LiveData<List<Habit>> = _habits
 
+    private val _finish = MutableLiveData<Event<Unit>>()
+    val finish: LiveData<Event<Unit>> = _finish
+
     init {
         getHabits()
     }
@@ -51,6 +54,10 @@ class HabitListViewModel(val habitRemoteDataSource: HabitRemoteDataSource) : Bas
 //            }, {
 //                Log.d("errorrrr", it.localizedMessage)
 //            })
+    }
+
+    fun finish() {
+        _finish.value = Event(Unit)
     }
 
 }

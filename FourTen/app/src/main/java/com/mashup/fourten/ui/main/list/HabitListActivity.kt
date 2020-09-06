@@ -27,6 +27,7 @@ class HabitListActivity : BaseActivity<ActivityHabitListBinding, HabitListViewMo
 
     private fun HabitListViewModel.setObserves() {
         habits.observe(this@HabitListActivity, Observer { adapter.updateItems(it) })
+        finish.observe(this@HabitListActivity, Observer { finish() })
     }
 
     private fun initRecyclerView() {
