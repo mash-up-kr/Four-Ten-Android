@@ -3,8 +3,11 @@ package com.mashup.fourten.ui.main.list
 import android.os.Bundle
 import androidx.lifecycle.Observer
 import com.mashup.fourten.R
+import com.mashup.fourten.data.model.Habit
 import com.mashup.fourten.databinding.ActivityHabitListBinding
+import com.mashup.fourten.databinding.ItemMainListBinding
 import com.mashup.fourten.ui.base.BaseActivity
+import com.mashup.fourten.ui.base.BaseRecyclerAdapter
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class HabitListActivity : BaseActivity<ActivityHabitListBinding, HabitListViewModel>(
@@ -20,7 +23,6 @@ class HabitListActivity : BaseActivity<ActivityHabitListBinding, HabitListViewMo
         viewModel.setObserves()
         initRecyclerView()
 
-        viewModel.getHabits()
     }
 
     private fun HabitListViewModel.setObserves() {
@@ -28,7 +30,10 @@ class HabitListActivity : BaseActivity<ActivityHabitListBinding, HabitListViewMo
     }
 
     private fun initRecyclerView() {
-        binding.rvHabit.adapter = HabitListAdapter()
+        binding.rvHabit.adapter = adapter
     }
-
 }
+
+class HabitListAdapter : BaseRecyclerAdapter<Habit, ItemMainListBinding>(
+    R.layout.item_main_list
+)

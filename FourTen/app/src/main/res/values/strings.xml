@@ -16,4 +16,6 @@
     <string name="text_later">나중에 다시 와요</string>
     <string name="text_later_short">나중에 와요</string>
 
+    <string name="text_x_count_format">X %d</string>
+
 </resources>
