@@ -3,6 +3,7 @@ package com.mashup.fourten.ui.main
 import android.os.Bundle
 import android.graphics.drawable.Drawable
 import androidx.lifecycle.Observer
+import androidx.recyclerview.widget.RecyclerView
 import androidx.vectordrawable.graphics.drawable.Animatable2Compat
 import com.linecorp.apng.ApngDrawable
 import com.linecorp.apng.RepeatAnimationCallback
@@ -52,9 +53,10 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>(
     }
 
     private fun setViewPager() {
-        binding.viewPager.run {
+        binding.viewPager.apply {
             adapter = viewPagerAdapter
             offscreenPageLimit = 3
+            (getChildAt(0) as? RecyclerView)?.overScrollMode = RecyclerView.OVER_SCROLL_NEVER
         }
     }
 
