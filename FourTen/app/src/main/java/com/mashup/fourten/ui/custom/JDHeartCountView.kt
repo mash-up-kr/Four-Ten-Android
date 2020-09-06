@@ -6,22 +6,20 @@ import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.LinearLayout
 import androidx.core.content.ContextCompat
+import androidx.databinding.BindingAdapter
 import com.mashup.fourten.R
+import kotlin.math.max
 
 class JDHeartCountView @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
 ) : FrameLayout(context, attrs, defStyleAttr) {
 
     private var maxHeartCnt: Int = DEFAULT_MAX_HEART
-    private var currentHeartCnt: Int = 0
+    private var currentHeartCnt: Int = DEFAULT_MAX_HEART
 
     init {
         attrs?.let {
-            val typedArray =
-                context.obtainStyledAttributes(it, R.styleable.JDHeartCounter, defStyleAttr, 0)
-            maxHeartCnt = typedArray.getInt(R.styleable.JDHeartCounter_maxHeart, maxHeartCnt)
-            currentHeartCnt =
-                typedArray.getInt(R.styleable.JDHeartCounter_fillHeart, currentHeartCnt)
+            val typedArray = context.obtainStyledAttributes(it, R.styleable.JDHeartCounter, defStyleAttr, 0)
             typedArray.recycle()
 
             layoutParams = LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT)
@@ -57,10 +55,8 @@ class JDHeartCountView @JvmOverloads constructor(
         return ivHeart
     }
 
-    private fun getCurrentHeart() = currentHeartCnt
-    private fun setCurrentHeart(heartCnt: Int) {
-        currentHeartCnt = heartCnt
-    }
+    fun setMaxHeart(maxCnt: Int) { maxHeartCnt = maxCnt }
+    fun setCurrentHeart(heartCnt: Int) { currentHeartCnt = heartCnt }
 
     enum class HeartViewType { FILL, EMPTY }
     companion object {
@@ -69,5 +65,12 @@ class JDHeartCountView @JvmOverloads constructor(
 
 }
 
+@BindingAdapter("maxHeart")
+fun JDHeartCountView.setMaxHeart(maxCnt: Int) {
+    setMaxHeart(maxCnt)
+}
 
-
+@BindingAdapter("fillHeart")
+fun JDHeartCountView.setFillHeart(fillCnt: Int) {
+    setCurrentHeart(fillCnt)
+}

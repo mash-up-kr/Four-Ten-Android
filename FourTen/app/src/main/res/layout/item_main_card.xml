@@ -77,11 +77,11 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="28dp"
                 android:layout_marginBottom="16dp"
-                app:fillHeart="2"
+                app:fillHeart="@{item.life}"
                 app:layout_constraintBottom_toTopOf="@+id/progressBarPercent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:maxHeart="5" />
+                app:maxHeart="@{item.life}" />
 
             <com.mashup.fourten.ui.custom.JDPrimaryEnabledBtn
                 android:id="@+id/btnConfirm"
