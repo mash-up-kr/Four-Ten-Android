@@ -32,22 +32,29 @@ class JDHeartCountView @JvmOverloads constructor(
     private fun makeView() {
         val grayHeartCnt = maxHeartCnt - currentHeartCnt
 
-        val emptyHeartDrawable = ContextCompat.getDrawable(context, R.drawable.love_empty)
-        val fillHeartDrawable = ContextCompat.getDrawable(context, R.drawable.love_fill)
-
         val container = LinearLayout(context)
-        container.layoutParams = LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT)
         for (i in 0 until grayHeartCnt) {
-            val ivEmptyHeart = ImageView(context).apply { setImageDrawable(emptyHeartDrawable) }
-            container.addView(ivEmptyHeart)
+            container.addView(getHeartImageView(HeartViewType.EMPTY))
         }
 
         for (i in grayHeartCnt until maxHeartCnt) {
-            val ivFillHeart = ImageView(context).apply { setImageDrawable(fillHeartDrawable) }
-            container.addView(ivFillHeart)
+            container.addView(getHeartImageView(HeartViewType.FILL))
         }
 
         addView(container)
+    }
+
+    private fun getHeartImageView(viewType: HeartViewType): ImageView {
+        val ivHeart = ImageView(context).apply {
+            setImageDrawable(
+                when (viewType) {
+                    HeartViewType.FILL -> ContextCompat.getDrawable(context, R.drawable.love_fill)
+                    HeartViewType.EMPTY -> ContextCompat.getDrawable(context, R.drawable.love_empty)
+                }
+            )
+        }
+        ivHeart.setPadding(4, 0, 4, 0)
+        return ivHeart
     }
 
     private fun getCurrentHeart() = currentHeartCnt
@@ -55,6 +62,7 @@ class JDHeartCountView @JvmOverloads constructor(
         currentHeartCnt = heartCnt
     }
 
+    enum class HeartViewType { FILL, EMPTY }
     companion object {
         private const val DEFAULT_MAX_HEART = 5
     }
