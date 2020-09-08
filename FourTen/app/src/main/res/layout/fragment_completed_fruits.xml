@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="fragment"
+            type="com.mashup.fourten.ui.completed.CompletedFruitsFragment" />
+
+        <variable
+            name="viewModel"
+            type="com.mashup.fourten.ui.completed.CompletedFruitsViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:bind_state="@{fragment.state}"
+            app:bind_viewModel="@{viewModel}"
+            app:layoutManager="GridLayoutManager"
+            app:spanCount="2"></androidx.recyclerview.widget.RecyclerView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

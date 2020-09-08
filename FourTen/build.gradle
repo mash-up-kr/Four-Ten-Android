@@ -40,6 +40,18 @@ buildscript {
         rxandroid_version = '2.1.1'
         rxkotlin_version = '2.4.0'
 
+        //google
+        googleplay_version = '18.1.0'
+
+        //firebase
+        firebase_auth_version = '19.3.1'
+        firebase_core_version = '17.0.0'
+
+        //viewpager
+        viewpager_version = '1.0.0'
+
+        //fragment_ktx
+        fragment_ktx_version='1.2.5'
     }
     repositories {
         google()
@@ -48,7 +60,7 @@ buildscript {
     dependencies {
         classpath "com.android.tools.build:gradle:4.0.0"
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-
+        classpath 'com.google.gms:google-services:4.3.3'
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
     }

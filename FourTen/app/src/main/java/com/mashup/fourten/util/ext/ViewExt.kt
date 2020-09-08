@@ -2,12 +2,8 @@ package com.mashup.fourten.util.ext
 
 import android.app.Activity
 import android.content.Context
-import android.content.Intent
 import android.content.pm.PackageManager
-import android.os.Bundle
-import android.text.TextUtils.replace
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 
@@ -16,16 +12,6 @@ fun Context.toast(message: CharSequence) =
 
 fun Context.longToast(message: CharSequence) =
     Toast.makeText(this, message, Toast.LENGTH_LONG).show()
-
-//startActivity<DetailActivity>()
-inline fun <reified T : Activity> Context.startActivity(bundle: Bundle? = null, vararg flags: Int) {
-    val intent = Intent(this, T::class.java)
-    for (flag in flags) {
-        intent.addFlags(flag)
-    }
-    if (bundle != null) intent.putExtras(bundle)
-    startActivity(intent)
-}
 
 fun Activity.checkPermission(REQUEST_CODE: Int, vararg permissions: String) {
     // Here, thisActivity is the current activity

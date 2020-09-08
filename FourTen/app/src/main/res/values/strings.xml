@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">FourTen</string>
-
     //habit_make
     <string name="goal">달성목표</string>
     <string name="edit_goal_name">달성목표를 입력해주세요.</string>
@@ -22,4 +21,12 @@
     <string name="period_of_alarm">알람 주기 설정</string>
     <string name="add_time">시간 추가</string>
     <string name="select_character">캐릭터 선택</string>
+    <string name="server_client_id">370014456030-ps8oqm93ugrmvqmpujof7cs3a9fl88p0.apps.googleusercontent.com</string>
+    <string name="default_notification_channel_id">fcm</string>
+    <string name="notification_default_channel_id">alert channel</string>
+    <string name="notification_default_channel_name">습관 알림</string>
+    <string name="notification_default_channel_description">설정된 습관에 맞춰 알림을 표출한다.</string>
+    <string name="put_nickname">닉네임을 제대로 넣어주세요!</string>
+    <string name="overlap_nickname">이미 사용중인 닉네임입니다!</string>
+    <string name="success_sign_up">회원가입 성공!</string>
 </resources>
