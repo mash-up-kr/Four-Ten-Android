@@ -1,23 +1,224 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.habitmake.HabitMakeActivity">
 
-    <TextView 
-        android:id="@+id/tv_habit_make_goal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="@color/black"
-        android:textSize="16sp"
-        android:text="@string/goal"/>
-    
-    <EditText
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/edit_goal_name"
-        android:textColorHint="@color/mushroom"/>
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="24dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="27dp"
+                android:text="@string/goal"
+                android:textColor="@color/black"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/et_habit_make_edit_goal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:background="@null"
+                android:hint="@string/edit_goal_name"
+                android:textColorHint="@color/mushroom"
+                android:textSize="16sp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="7dp"
+                android:background="@color/mushroom" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:text="@string/goal_period"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="64dp"
+                android:layout_marginTop="11dp"
+                android:orientation="horizontal">
+
+                <ToggleButton
+                    android:id="@+id/btn_habit_make_three_week"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_btn_radius_12"
+                    android:layout_marginEnd="12dp"
+                    android:textColor="@color/btn_txt_make_habit"
+                    android:textOff="@string/three_week"
+                    android:textOn="@string/three_week"/>
+
+                <ToggleButton
+                    android:id="@+id/btn_habit_make_one_month"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_btn_radius_12"
+                    android:layout_marginEnd="12dp"
+                    android:textColor="@color/btn_txt_make_habit"
+                    android:textOff="@string/one_month"
+                    android:textOn="@string/one_month"/>
+
+                <ToggleButton
+                    android:id="@+id/btn_habit_make_two_month"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_btn_radius_12"
+                    android:layout_marginEnd="12dp"
+                    android:textColor="@color/btn_txt_make_habit"
+                    android:textOff="@string/two_month"
+                    android:textOn="@string/two_month"/>
+
+                <ToggleButton
+                    android:id="@+id/btn_habit_make_three_month"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_btn_radius_12"
+                    android:textColor="@color/btn_txt_make_habit"
+                    android:textOff="@string/three_month"
+                    android:textOn="@string/three_month"/>
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:text="@string/goal_week"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="64dp"
+                android:layout_marginTop="11dp"
+                android:orientation="horizontal">
+
+                <ToggleButton
+                    android:id="@+id/btn_habit_make_mon"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="12dp"
+                    android:background="@drawable/bg_btn_radius_12"
+                    android:textColor="@color/btn_txt_make_habit"
+                    android:textOff="@string/monday"
+                    android:textOn="@string/monday"/>
+
+                <ToggleButton
+                    android:id="@+id/btn_habit_make_tue"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="12dp"
+                    android:background="@drawable/bg_btn_radius_12"
+                    android:textColor="@color/btn_txt_make_habit"
+                    android:textOff="@string/tuesday"
+                    android:textOn="@string/tuesday"/>
+
+                <ToggleButton
+                    android:id="@+id/btn_habit_make_wed"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="12dp"
+                    android:background="@drawable/bg_btn_radius_12"
+                    android:textColor="@color/btn_txt_make_habit"
+                    android:textOff="@string/wednesday"
+                    android:textOn="@string/wednesday"/>
+
+                <ToggleButton
+                    android:id="@+id/btn_habit_make_thu"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="12dp"
+                    android:background="@drawable/bg_btn_radius_12"
+                    android:textColor="@color/btn_txt_make_habit"
+                    android:textOn="@string/thursday"
+                    android:textOff="@string/thursday"/>
+
+                <ToggleButton
+                    android:id="@+id/btn_habit_make_fri"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="12dp"
+                    android:background="@drawable/bg_btn_radius_12"
+                    android:textColor="@color/btn_txt_make_habit"
+                    android:textOn="@string/friday"
+                    android:textOff="@string/friday"/>
+
+                <ToggleButton
+                    android:id="@+id/btn_habit_make_sat"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="12dp"
+                    android:background="@drawable/bg_btn_radius_12"
+                    android:textColor="@color/btn_txt_make_habit"
+                    android:textOn="@string/saturday"
+                    android:textOff="@string/saturday"/>
+
+                <ToggleButton
+                    android:id="@+id/btn_habit_make_sun"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_btn_radius_12"
+                    android:textColor="@color/btn_txt_make_habit"
+                    android:textOff="@string/sunday"
+                    android:textOn="@string/sunday"/>
+
+            </LinearLayout>
+            
+            <ToggleButton
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/bg_btn_radius_12"
+                android:textColor="@color/btn_txt_make_habit"
+                android:textOff="@string/everyday"
+                android:textOn="@string/everyday"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="13dp"
+                android:textColor="@color/mushroom"
+                android:textSize="12sp"
+                android:text="@string/notion_for_choosing_weekday"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:text="@string/period_of_alarm"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+
 </LinearLayout>
