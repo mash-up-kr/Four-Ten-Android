@@ -1,18 +1,13 @@
 package com.mashup.fourten.ui.splash
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.google.gson.JsonElement
-import com.google.gson.JsonObject
-import com.mashup.fourten.data.local.JadoPreferences.ptToken
 import com.mashup.fourten.data.model.response.BaseResponse
 import com.mashup.fourten.data.model.response.BaseResponseData
-import com.mashup.fourten.data.repository.FruitRepositorylmpl
-import com.mashup.fourten.data.repository.SignRepositoryImpl
+import com.mashup.fourten.data.remote.source.FruitRemoteDataSource
 import com.mashup.fourten.ui.base.BaseViewModel
 import com.mashup.fourten.util.Event
-import com.mashup.fourten.util.ext.e
 
 enum class ResponseCode(val Code: Int) {
     FAIL(0),
@@ -21,13 +16,13 @@ enum class ResponseCode(val Code: Int) {
     NICKNAME(4)
 }
 
-class SplashViewModel(val repo: FruitRepositorylmpl) : BaseViewModel() {
+class SplashViewModel(private val fruitDataSource: FruitRemoteDataSource) : BaseViewModel() {
 
     private val _checkedSignInField = MutableLiveData<Event<Boolean>>()
     val checkedSignInField: LiveData<Event<Boolean>> = _checkedSignInField
 
     fun signInCheck() {
-        repo.signInCheck(object : BaseResponse<BaseResponseData<JsonElement>> {
+        fruitDataSource.signInCheck(object : BaseResponse<BaseResponseData<JsonElement>> {
             override fun onSuccess(data: BaseResponseData<JsonElement>) {
                 if (data.responseCode == ResponseCode.SUCCESS.Code) {
                     _checkedSignInField.value = Event(true)
