@@ -1,6 +1,7 @@
 package com.mashup.fourten.di
 
 import com.mashup.fourten.ui.completed.CompletedFruitsViewModel
+import com.mashup.fourten.ui.habitmake.HabitMakeViewModel
 import com.mashup.fourten.ui.login.LoginViewModel
 import com.mashup.fourten.ui.nickname.NicknameViewModel
 import com.mashup.fourten.ui.setting.SettingViewModel
@@ -28,5 +29,9 @@ val viewModelModule = module(override = true) {
 
     viewModel {
         CompletedFruitsViewModel(get())
+    }
+
+    viewModel {
+        HabitMakeViewModel(get())
     }
 }
