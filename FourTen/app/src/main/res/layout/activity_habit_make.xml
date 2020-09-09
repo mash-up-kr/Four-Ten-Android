@@ -263,11 +263,15 @@
                         android:layout_marginStart="8dp"
                         android:text="@string/add_time"
                         android:textColor="@color/black"
+                        android:layout_weight="1"
                         android:textSize="16sp"/>
                     <Switch
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"/>
+                        android:layout_width="51dp"
+                        android:layout_height="30dp"
+                        android:background="@drawable/bg_btn_radius_12"
+                        android:track="@drawable/bg_switch_track"
+                        android:thumb="@drawable/bg_switch_thumb"
+                        android:thumbTextPadding="2dp"/>
                 </LinearLayout>
                 <View
                     android:layout_width="match_parent"
