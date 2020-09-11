@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="JDHeartCounter">
+    </declare-styleable>
+
+    <declare-styleable name="JDPrimaryEnabledBtn">
+        <attr name="activeText" format="string" />
+        <attr name="inactiveText" format="string" />
+    </declare-styleable>
+
+</resources>

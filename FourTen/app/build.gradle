@@ -102,4 +102,7 @@ dependencies {
 
     //JWTDecode.Android
     implementation "com.auth0.android:jwtdecode:$jwt_decode_version"
+
+    //apng
+    implementation "com.linecorp:apng:$apng_version"
 }

@@ -1,6 +1,5 @@
 package com.mashup.fourten.di
 
-
 import com.mashup.fourten.data.repository.FruitRepositorylmpl
 import com.mashup.fourten.data.repository.SignRepositoryImpl
 import org.koin.core.qualifier.named
@@ -16,4 +15,5 @@ val repositoryModule = module(override = true) {
     single {
         FruitRepositorylmpl(get(named("afterLoginApi")))
     }
+
 }

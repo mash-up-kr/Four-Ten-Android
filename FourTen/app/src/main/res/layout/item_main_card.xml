@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="item"
+            type="com.mashup.fourten.data.model.Habit" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="6dp"
+        app:cardUseCompatPadding="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/tvTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="24dp"
+                android:text="@{item.title}"
+                android:textColor="@color/textBlack"
+                android:textSize="32sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="제목이다람쥐" />
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="24dp"
+                android:background="@drawable/textbox"
+                android:gravity="center"
+                android:includeFontPadding="false"
+                android:paddingBottom="7dp"
+                android:singleLine="true"
+                android:text="@{item.title}"
+                android:textColor="@android:color/black"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvTitle"
+                tools:text="자두자두 졸리냐? 그래도 해!" />
+
+            <ImageView
+                android:id="@+id/ivCharacter"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="14dp"
+                android:layout_marginEnd="30dp"
+                android:layout_marginBottom="24dp"
+                android:background="@color/silver"
+                app:layout_constraintBottom_toTopOf="@+id/heartCountView"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView4"
+                app:layout_constraintVertical_bias="1.0" />
+
+            <com.mashup.fourten.ui.custom.JDHeartCountView
+                android:id="@+id/heartCountView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="28dp"
+                android:layout_marginBottom="16dp"
+                app:fillHeart="@{item.life}"
+                app:layout_constraintBottom_toTopOf="@+id/progressBarPercent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:maxHeart="@{item.life}" />
+
+            <com.mashup.fourten.ui.custom.JDPrimaryEnabledBtn
+                android:id="@+id/btnConfirm"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_marginBottom="22dp"
+                android:enabled="true"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:activeText="@string/text_done"
+                app:inactiveText="@string/text_later"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/progressBarPercent"
+                app:layout_constraintStart_toStartOf="@+id/progressBarPercent"
+                tools:text="해냈습니다!" />
+
+            <ProgressBar
+                android:id="@+id/progressBarPercent"
+                style="@style/customProgressBarStyle"
+                android:layout_width="0dp"
+                android:layout_height="8dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="14dp"
+                app:layout_constraintBottom_toTopOf="@+id/btnConfirm"
+                app:layout_constraintEnd_toEndOf="@+id/textView4"
+                app:layout_constraintStart_toStartOf="@+id/textView4" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+</layout>

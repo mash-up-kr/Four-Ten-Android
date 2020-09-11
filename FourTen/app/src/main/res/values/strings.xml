@@ -29,4 +29,14 @@
     <string name="put_nickname">닉네임을 제대로 넣어주세요!</string>
     <string name="overlap_nickname">이미 사용중인 닉네임입니다!</string>
     <string name="success_sign_up">회원가입 성공!</string>
+
+    <string name="main_list_title">내 습관 한 번에 보기</string>
+    <string name="habit_list_title">내 습관 한번에 보기</string>
+
+    <string name="text_done">해냈습니다!</string>
+    <string name="text_later">나중에 다시 와요</string>
+    <string name="text_later_short">나중에 와요</string>
+
+    <string name="text_x_count_format">X %d</string>
+
 </resources>

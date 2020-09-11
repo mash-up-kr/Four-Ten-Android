@@ -4,3 +4,7 @@ enum class SnsType(val snsType: String) {
     GOOGLE("google"),
     NONE("")
 }
+
+interface UserRepository {
+
+}

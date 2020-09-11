@@ -1,6 +1,6 @@
-package com.mashup.fourten.data.model.response
+package com.mashup.fourten.data.model
 
-data class HabitListResponseData(
+data class Habit(
     val alarmTime: Int,
     val createDate: String,
     val diarys: List<Any>,
@@ -13,3 +13,5 @@ data class HabitListResponseData(
     val title: String,
     val totalCount: Int
 )
+
+enum class State { ING, DONE, FAIL }

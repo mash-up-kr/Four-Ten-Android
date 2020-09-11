@@ -6,7 +6,7 @@
 
         <variable
             name="userData"
-            type="com.mashup.fourten.data.model.response.HabitListResponseData" />
+            type="com.mashup.fourten.data.model.Habit" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

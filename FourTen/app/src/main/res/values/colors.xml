@@ -8,6 +8,18 @@
     <color name="black">#131313</color>
     <color name="mushroom">#a8a6a6</color>
     <color name="pale_lilac">#eaeaec</color>
-    <color name="white">#ffffff</color>
+
     <color name="very_light_pink">#cbcbcb</color>
+
+    <color name="navy">#2c3242</color>
+    <color name="textBlack">#2c3242</color>
+
+    <color name="pale_grey">#f1f3f5</color>
+    <color name="steel">#7f858e</color>
+    <color name="silver">#d5d6d9</color>
+    <color name="battleship_grey">#6b707a</color>
+
+    <color name="white">#FFFFFF</color>
+    <color name="gray_background">#fbfcfc</color>
+
 </resources>
