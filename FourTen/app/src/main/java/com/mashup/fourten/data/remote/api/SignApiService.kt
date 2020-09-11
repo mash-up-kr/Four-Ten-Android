@@ -22,7 +22,7 @@ interface SignApiService {
     @POST("user/sign-up")
     fun requestSignUp(
         @Body params: SignUpRequestData
-    ): Single<BaseResponseData<JsonObject>>
+    ): Single<BaseResponseData<JsonElement>>
 
 }
 

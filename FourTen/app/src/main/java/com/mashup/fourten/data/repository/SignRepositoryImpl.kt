@@ -22,7 +22,7 @@ class SignRepositoryImpl(private val signApi: SignApiService) : SignRepository {
 
     override fun signUp(
         token: String,
-        callback: BaseResponse<BaseResponseData<JsonObject>>,
+        callback: BaseResponse<BaseResponseData<JsonElement>>,
         nickname: String
     ): Disposable {
         return signApi.requestSignUp(SignUpRequestData(SnsType.GOOGLE.snsType, token, nickname))

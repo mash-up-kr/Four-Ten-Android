@@ -12,7 +12,7 @@ interface SignRepository {
 
     fun signUp(
         token: String,
-        callback: BaseResponse<BaseResponseData<JsonObject>>,
+        callback: BaseResponse<BaseResponseData<JsonElement>>,
         nickname: String
     ): Disposable
 
