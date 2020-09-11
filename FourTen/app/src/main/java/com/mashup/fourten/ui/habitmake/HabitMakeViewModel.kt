@@ -5,9 +5,6 @@ import android.widget.RadioGroup
 import android.widget.ToggleButton
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import com.mashup.fourten.R
-import com.mashup.fourten.data.model.response.HabitListResponseData
 import com.mashup.fourten.data.repository.FruitRepositorylmpl
 import com.mashup.fourten.ui.base.BaseViewModel
 
