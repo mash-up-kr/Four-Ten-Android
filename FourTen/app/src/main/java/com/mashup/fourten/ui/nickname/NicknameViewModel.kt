@@ -2,11 +2,14 @@ package com.mashup.fourten.ui.nickname
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import com.google.gson.GsonBuilder
+import com.google.gson.JsonElement
 import com.google.gson.JsonObject
 import com.mashup.fourten.R
 import com.mashup.fourten.data.local.JadoPreferences
 import com.mashup.fourten.data.model.response.BaseResponse
 import com.mashup.fourten.data.model.response.BaseResponseData
+import com.mashup.fourten.data.model.response.SignUpUserResponseData
 import com.mashup.fourten.data.repository.SignRepositoryImpl
 import com.mashup.fourten.ui.base.BaseViewModel
 import com.mashup.fourten.ui.splash.ResponseCode
@@ -32,10 +35,18 @@ class NicknameViewModel(val repo: SignRepositoryImpl) : BaseViewModel() {
         } else {
             repo.signUp(
                 JadoPreferences.googleToken,
-                object : BaseResponse<BaseResponseData<JsonObject>> {
-                    override fun onSuccess(data: BaseResponseData<JsonObject>) {
+                object : BaseResponse<BaseResponseData<JsonElement>> {
+                    override fun onSuccess(data: BaseResponseData<JsonElement>) {
                         if (data.responseCode == ResponseCode.SUCCESS.Code) {
                             _toastField.value = Event<Int>(R.string.success_sign_up)
+                            val gson = GsonBuilder().setPrettyPrinting().create()
+                            val json = gson.fromJson(
+                                data.responseData.toString(),
+                                SignUpUserResponseData::class.java
+                            )
+                            if (json is SignUpUserResponseData) {
+                                JadoPreferences.ptToken = json.token
+                            }
                             _loginField.value = Event(0)
                         } else if (data.responseCode == ResponseCode.NICKNAME.Code) {
                             _toastField.value = Event<Int>(R.string.overlap_nickname)

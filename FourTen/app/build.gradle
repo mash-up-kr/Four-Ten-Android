@@ -100,4 +100,6 @@ dependencies {
     //fragment ktx
     implementation "androidx.fragment:fragment-ktx:$fragment_ktx_version"
 
+    //JWTDecode.Android
+    implementation "com.auth0.android:jwtdecode:$jwt_decode_version"
 }

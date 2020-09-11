@@ -8,11 +8,11 @@ import io.reactivex.disposables.Disposable
 
 interface SignRepository {
 
-    fun signIn(token: String, callback: BaseResponse<BaseResponseData<JsonObject>>): Disposable
+    fun signIn(token: String, callback: BaseResponse<BaseResponseData<JsonElement>>): Disposable
 
     fun signUp(
         token: String,
-        callback: BaseResponse<BaseResponseData<JsonObject>>,
+        callback: BaseResponse<BaseResponseData<JsonElement>>,
         nickname: String
     ): Disposable
 

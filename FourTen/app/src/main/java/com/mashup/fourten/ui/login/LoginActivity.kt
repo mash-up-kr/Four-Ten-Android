@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.lifecycle.Observer
+import com.auth0.android.jwt.JWT
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.common.SignInButton
 import com.google.android.gms.common.api.ApiException
@@ -36,8 +37,8 @@ class LoginActivity : BaseActivity<ActivityLoginBinding, LoginViewModel>(R.layou
         if (requestCode == RC_SIGN_IN) {
             val task = GoogleSignIn.getSignedInAccountFromIntent(data)
             try {
-                val account = task.getResult(ApiException::class.java)!!
-                JadoPreferences.googleToken = account.idToken!!.take(50)
+                val account = task.getResult(ApiException::class.java)
+                account?.idToken?.let { JWT(it) }?.subject?.let { JadoPreferences.googleToken = it }
                 viewModel.idCheck()
             } catch (e: ApiException) {
                 Log.w("!", "Google sign in failed", e)
@@ -61,7 +62,10 @@ class LoginActivity : BaseActivity<ActivityLoginBinding, LoginViewModel>(R.layou
                     start(MainActivity::class)
                     finish()
                 }
-                false -> start(NicknameActivity::class)
+                false -> {
+                    start(NicknameActivity::class)
+                    finish()
+                }
             }
         })
     }
