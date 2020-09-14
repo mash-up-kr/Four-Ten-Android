@@ -17,5 +17,6 @@
     <string name="text_later_short">나중에 와요</string>
 
     <string name="text_x_count_format">X %d</string>
+    <string name="done_total_count_format">%d/%d</string>
 
 </resources>

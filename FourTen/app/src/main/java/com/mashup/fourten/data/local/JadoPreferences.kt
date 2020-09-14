@@ -14,7 +14,8 @@ object JadoPreferences {
     }
 
     var ptToken: String
-        get() = preferences.getString(PT_TOKEN, "") ?: ""
+        get() = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwiaWF0IjoxNTk5NjI2NTI5LCJleHAiOjE2MDIyMTg1Mjl9.oM56So567mF5db5uUOAUifiaUIWMNsLBbPCRBp3nVsE"
+//        get() = preferences.getString(PT_TOKEN, "") ?: ""
         set(value) = preferences.let {
             it.edit().putString(PT_TOKEN, value).apply()
         }

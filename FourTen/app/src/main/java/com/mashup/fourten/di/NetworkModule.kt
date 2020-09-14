@@ -17,7 +17,7 @@ import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
-const val BASE_URL = "http://61.97.186.168:8080/"
+const val BASE_URL = "http://34.64.93.209:8080/"
 private const val TIMEOUT: Long = 10L
 
 val networkModule = module(override = true) {
