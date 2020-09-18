@@ -5,10 +5,10 @@ import android.widget.RadioGroup
 import android.widget.ToggleButton
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.mashup.fourten.data.repository.FruitRepositorylmpl
+import com.mashup.fourten.data.remote.source.FruitRemoteDataSource
 import com.mashup.fourten.ui.base.BaseViewModel
 
-class HabitMakeViewModel (val repo : FruitRepositorylmpl): BaseViewModel(){
+class HabitMakeViewModel (val fruitRemoteDataSource : FruitRemoteDataSource): BaseViewModel(){
     private val _allweekCheck = MutableLiveData<Boolean>()
     private val _weekCheck = MutableLiveData<Boolean>()
     val allweekCheck : LiveData<Boolean> = _allweekCheck
