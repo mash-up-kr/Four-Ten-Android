@@ -105,7 +105,7 @@
                 android:layout_marginStart="7dp"
                 android:includeFontPadding="false"
                 android:singleLine="true"
-                android:text="@{@string/text_x_count_format(item.life)}"
+                android:text="@{@string/text_x_count_format(item.currentLife)}"
                 android:textColor="@color/battleship_grey"
                 android:textSize="14sp"
                 android:textStyle="bold"

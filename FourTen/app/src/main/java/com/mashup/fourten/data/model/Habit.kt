@@ -9,6 +9,7 @@ data class Habit(
     val duration: Int,
     val habitSeq: Int,
     val life: Int,
+    val currentLife: Int,
     val state: String,
     val title: String,
     val totalCount: Int
