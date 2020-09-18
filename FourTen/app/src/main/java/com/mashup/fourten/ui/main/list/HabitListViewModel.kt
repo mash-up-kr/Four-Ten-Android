@@ -1,12 +1,15 @@
 package com.mashup.fourten.ui.main.list
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.mashup.fourten.data.model.Habit
-import com.mashup.fourten.data.model.State
 import com.mashup.fourten.data.remote.source.HabitRemoteDataSource
 import com.mashup.fourten.ui.base.BaseViewModel
 import com.mashup.fourten.util.Event
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.rxkotlin.addTo
+import io.reactivex.schedulers.Schedulers
 
 class HabitListViewModel(val habitRemoteDataSource: HabitRemoteDataSource) : BaseViewModel() {
 
@@ -17,43 +20,19 @@ class HabitListViewModel(val habitRemoteDataSource: HabitRemoteDataSource) : Bas
     val finish: LiveData<Event<Unit>> = _finish
 
     init {
-        getHabits()
+        getHabitData()
     }
 
-    fun getHabits() {
-        _habits.value = arrayListOf(
-            Habit(
-                0, "2020-09-02", listOf(), "", 10,
-                5, 2, 2, State.ING.name, "영어단어 외우기", 20
-            ),
-
-            Habit(
-                0, "2020-09-02", listOf(), "", 10,
-                5, 2, 2, State.ING.name, "노래부르기", 20
-            ),
-
-            Habit(
-                0, "2020-09-02", listOf(), "", 10,
-                5, 2, 2, State.ING.name, "노래부르기", 20
-            ),
-
-            Habit(
-                0, "2020-09-02", listOf(), "", 10,
-                5, 2, 2, State.ING.name, "노래부르기", 20
-            ),
-
-            Habit(
-                0, "2020-09-02", listOf(), "", 10,
-                5, 2, 2, State.ING.name, "노래부르기", 20
-            )
-        )
-//        habitRemoteDataSource.getHabitList()
-//            .subscribeOn(Schedulers.io())
-//            .subscribe({
-//                _habits.value = it
-//            }, {
-//                Log.d("errorrrr", it.localizedMessage)
-//            })
+    private fun getHabitData() {
+        habitRemoteDataSource.getHabitList()
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe({
+                _habits.value = it
+            }, {
+                Log.d("error", it.localizedMessage)
+            })
+            .addTo(disposable)
     }
 
     fun finish() {

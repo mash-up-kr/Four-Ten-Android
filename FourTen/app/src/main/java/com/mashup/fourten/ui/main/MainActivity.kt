@@ -36,7 +36,7 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>(
     }
 
     private fun MainViewModel.setObserves() {
-        habitList.observe(this@MainActivity, Observer { viewPagerAdapter.updateItems(it) })
+        habits.observe(this@MainActivity, Observer { viewPagerAdapter.updateItems(it) })
 
         startSettingActivity.observe(this@MainActivity, EventObserver {
             //TODO : intent SettingActivity

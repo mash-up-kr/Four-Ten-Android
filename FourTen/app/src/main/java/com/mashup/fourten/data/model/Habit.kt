@@ -5,7 +5,7 @@ data class Habit(
     val createDate: String,
     val diarys: List<Any>,
     val doDay: String,
-    val doneCount: Int,
+    var doneCount: Int,
     val duration: Int,
     val habitSeq: Int,
     val life: Int,
