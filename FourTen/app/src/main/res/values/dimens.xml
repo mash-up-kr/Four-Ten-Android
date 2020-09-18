@@ -3,4 +3,8 @@
     <dimen name="viewpager_next_item_visible">24dp</dimen>
     <dimen name="viewpager_current_item_horizontal_margin">42dp</dimen>
 
+    <dimen name="pageMargin">0dp</dimen>
+    <dimen name="offset">40dp</dimen>
+    <dimen name="pageMarginAndOffset">38dp</dimen>
+
 </resources>

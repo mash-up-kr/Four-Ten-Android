@@ -2,6 +2,7 @@ package com.mashup.fourten.ui.main
 
 import android.os.Bundle
 import android.graphics.drawable.Drawable
+import androidx.core.view.ViewCompat
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.RecyclerView
 import androidx.vectordrawable.graphics.drawable.Animatable2Compat
@@ -53,10 +54,24 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>(
     }
 
     private fun setViewPager() {
-        binding.viewPager.apply {
+        with(binding.viewPager) {
             adapter = viewPagerAdapter
-            offscreenPageLimit = 3
+            offscreenPageLimit = 1
             (getChildAt(0) as? RecyclerView)?.overScrollMode = RecyclerView.OVER_SCROLL_NEVER
+        }
+        setPagerMargin()
+    }
+
+    private fun setPagerMargin() {
+        val pageMarginPx = resources.getDimensionPixelOffset(R.dimen.pageMargin)
+        val offsetPx = resources.getDimensionPixelOffset(R.dimen.offset)
+        binding.viewPager.setPageTransformer { page, position ->
+            val offset = position * -(2 * offsetPx + pageMarginPx)
+            if (ViewCompat.getLayoutDirection(binding.viewPager) == ViewCompat.LAYOUT_DIRECTION_RTL) {
+                page.translationX = -offset
+            } else {
+                page.translationX = offset
+            }
         }
     }
 
