@@ -119,10 +119,8 @@
                 android:layout_height="8dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginBottom="14dp"
-                android:indeterminate="true"
-                android:indeterminateTintMode="src_atop"
-                android:indeterminateTint="@color/grapefruit"
                 android:progress="@{item.doneCount}"
+                android:max="@{item.totalCount}"
                 app:layout_constraintBottom_toTopOf="@+id/btnConfirm"
                 app:layout_constraintEnd_toEndOf="@+id/textView4"
                 app:layout_constraintStart_toStartOf="@+id/textView4" />
