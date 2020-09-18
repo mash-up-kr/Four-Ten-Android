@@ -28,6 +28,7 @@ class JDHeartCountView @JvmOverloads constructor(
     }
 
     private fun makeView() {
+        removeAllViews()
         val grayHeartCnt = maxHeartCnt - currentHeartCnt
 
         val container = LinearLayout(context)
@@ -55,8 +56,15 @@ class JDHeartCountView @JvmOverloads constructor(
         return ivHeart
     }
 
-    fun setMaxHeart(maxCnt: Int) { maxHeartCnt = maxCnt }
-    fun setCurrentHeart(heartCnt: Int) { currentHeartCnt = heartCnt }
+    fun setMaxHeart(maxCnt: Int) {
+        maxHeartCnt = maxCnt
+        makeView()
+    }
+
+    fun setCurrentHeart(heartCnt: Int) {
+        currentHeartCnt = heartCnt
+        makeView()
+    }
 
     enum class HeartViewType { FILL, EMPTY }
     companion object {
