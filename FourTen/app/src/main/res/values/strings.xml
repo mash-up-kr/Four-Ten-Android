@@ -39,5 +39,8 @@
 
     <string name="text_x_count_format">X %d</string>
     <string name="done_total_count_format">%d/%d</string>
+    <string name="empty_card_title">습관을 만들어봐요</string>
+    <string name="empty_card_message">나랑 새로운 습관을 만들어보자! 쿨..</string>
+    <string name="list_empty_message">아직 습관이 없네요!</string>
 
 </resources>
