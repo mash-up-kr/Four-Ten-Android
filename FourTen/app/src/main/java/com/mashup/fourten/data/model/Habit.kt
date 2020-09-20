@@ -13,6 +13,8 @@ data class Habit(
     val state: String,
     val title: String,
     val totalCount: Int
-)
+) {
+    val isTodayHabit: Boolean = false
+}
 
 enum class State { ING, DONE, FAIL }

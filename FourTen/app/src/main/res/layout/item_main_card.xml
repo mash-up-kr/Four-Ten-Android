@@ -90,7 +90,7 @@
                 android:layout_width="0dp"
                 android:layout_height="48dp"
                 android:layout_marginBottom="22dp"
-                android:enabled="true"
+                android:enabled="@{item.isTodayHabit}"
                 android:textSize="16sp"
                 android:textStyle="bold"
                 app:activeText="@string/text_done"
