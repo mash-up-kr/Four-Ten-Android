@@ -35,7 +35,7 @@ class HabitListViewModel(val habitRemoteDataSource: HabitRemoteDataSource) : Bas
             .addTo(disposable)
     }
 
-    fun finish() {
+    fun finishEvent() {
         _finish.value = Event(Unit)
     }
 

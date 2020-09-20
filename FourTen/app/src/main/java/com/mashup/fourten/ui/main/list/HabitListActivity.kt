@@ -8,6 +8,7 @@ import com.mashup.fourten.databinding.ActivityHabitListBinding
 import com.mashup.fourten.databinding.ItemMainListBinding
 import com.mashup.fourten.ui.base.BaseActivity
 import com.mashup.fourten.ui.base.BaseRecyclerAdapter
+import com.mashup.fourten.util.EventObserver
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class HabitListActivity : BaseActivity<ActivityHabitListBinding, HabitListViewModel>(
@@ -27,7 +28,7 @@ class HabitListActivity : BaseActivity<ActivityHabitListBinding, HabitListViewMo
 
     private fun HabitListViewModel.setObserves() {
         habits.observe(this@HabitListActivity, Observer { adapter.updateItems(it) })
-        finish.observe(this@HabitListActivity, Observer { finish() })
+        finish.observe(this@HabitListActivity, EventObserver { finish() })
     }
 
     private fun initRecyclerView() {
