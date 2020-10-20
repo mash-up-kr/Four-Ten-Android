@@ -31,7 +31,7 @@ class MainViewModel(
     val startHabitListActivity: LiveData<Event<Unit>>
         get() = _startHabitListActivity
 
-    private val _habits = MutableLiveData<List<Habit>>()
+    private val _habits = MutableLiveData<List<Habit>>(listOf())
     val habits: LiveData<List<Habit>>
         get() = _habits
 
